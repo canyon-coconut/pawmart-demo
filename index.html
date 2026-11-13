@@ -254,7 +254,7 @@ footer p{font-size:15px;color:#CFC6AE}
         </div>
       </div>
       <div class="hero-photo">
-        <img src="https://images.unsplash.com/photo-1450778869180-41d0601e046e?auto=format&fit=crop&w=1000&q=60" alt="A dog and a cat resting together" onerror="imgFallback(this)">
+        <img src="images/hero.jpg" alt="A dog and a cat resting together" onerror="imgFallback(this)">
       </div>
     </div>
   </div>
@@ -436,18 +436,18 @@ function imgFallback(el){ el.onerror=null; el.src=FALLBACK; }
 
 const U = id => 'https://images.unsplash.com/' + id + '?auto=format&fit=crop&w=800&q=60';
 const PRODUCTS = [
- {id:1, name:'Premium Chicken Kibble 5kg', cat:'dogs', catLabel:'Dogs', price:24.99, rating:4.9, reviews:212, badge:'Bestseller', img:U('photo-1589924691995-400dc9ecc119'), alt:'Dog eating from a bowl of kibble'},
- {id:2, name:'Grain-Free Salmon Kibble 4kg', cat:'dogs', catLabel:'Dogs', price:29.50, rating:4.8, reviews:167, badge:'', img:U('photo-1548199973-03cce0bbc87b'), alt:'Two happy dogs running outside'},
- {id:3, name:'Rope & Ball Toy Set', cat:'dogs', catLabel:'Dogs', price:9.99, rating:4.7, reviews:98, badge:'New', img:U('photo-1601758228041-f3b2795255f1'), alt:'Dog playing with its owner at home'},
- {id:4, name:'Orthopedic Dog Bed — Large', cat:'dogs', catLabel:'Dogs', price:39.99, was:49.99, rating:4.9, reviews:301, badge:'Save 20%', sale:true, img:U('photo-1537151625747-768eb6cf92b2'), alt:'Dog resting comfortably'},
- {id:5, name:'Natural Clumping Cat Litter 10kg', cat:'cats', catLabel:'Cats', price:16.75, rating:4.8, reviews:256, badge:'Bestseller', img:U('photo-1514888286974-6c03e2ca1dba'), alt:'Tabby cat looking at the camera'},
- {id:6, name:'Feather Wand Toy', cat:'cats', catLabel:'Cats', price:8.50, rating:4.6, reviews:74, badge:'', img:U('photo-1592194996308-7b43878e84a6'), alt:'Kitten playing indoors'},
- {id:7, name:'Indoor Cat Dry Food 3kg', cat:'cats', catLabel:'Cats', price:21.25, rating:4.8, reviews:189, badge:'', img:U('photo-1573865526739-10659fec78a5'), alt:'Cat sitting by a window'},
- {id:8, name:'Window Hammock Bed', cat:'cats', catLabel:'Cats', price:27.99, rating:4.7, reviews:143, badge:'New', img:U('photo-1495360010541-f48722b34f7d'), alt:'Cat relaxing in the sun'},
- {id:9, name:'Gentle Puppy Shampoo 500ml', cat:'care', catLabel:'Care & Home', price:11.25, rating:4.9, reviews:178, badge:'', img:U('photo-1583337130417-3346a1be7dee'), alt:'Dog being gently washed'},
- {id:10, name:'Dental Sticks — 28 Pack', cat:'care', catLabel:'Care & Home', price:13.40, rating:4.7, reviews:264, badge:'', img:U('photo-1587300003388-59208cc962cb'), alt:'Puppy and kitten together'},
- {id:11, name:'Pet Hair Roller Pro', cat:'care', catLabel:'Care & Home', price:12.99, rating:4.8, reviews:342, badge:'Bestseller', img:U('photo-1517849845537-4d257902454a'), alt:'Pug puppy on a sofa'},
- {id:12, name:'Calming Drops for Anxious Pets', cat:'care', catLabel:'Care & Home', price:19.95, rating:4.6, reviews:87, badge:'', img:U('photo-1548767797-d8c844163c4c'), alt:'Calm cat resting at home'}
+ {id:1, name:'Premium Chicken Kibble 5kg', cat:'dogs', catLabel:'Dogs', price:24.99, rating:4.9, reviews:212, badge:'Bestseller', img:'images/p01.jpg', alt:'Dog eating from a bowl of kibble'},
+ {id:2, name:'Grain-Free Salmon Kibble 4kg', cat:'dogs', catLabel:'Dogs', price:29.50, rating:4.8, reviews:167, badge:'', img:'images/p02.jpg', alt:'Two happy dogs running outside'},
+ {id:3, name:'Braided Rope Tug Toy', cat:'dogs', catLabel:'Dogs', price:9.99, rating:4.7, reviews:98, badge:'New', img:'images/p03.jpg', alt:'Dog playing tug with a braided rope toy'},
+ {id:4, name:'Orthopedic Dog Bed — Large', cat:'dogs', catLabel:'Dogs', price:39.99, was:49.99, rating:4.9, reviews:301, badge:'Save 20%', sale:true, img:'images/p04.jpg', alt:'Puppy sleeping on a round dog bed'},
+ {id:5, name:'Self-Cleaning Litter Box', cat:'cats', catLabel:'Cats', price:89.99, rating:4.8, reviews:256, badge:'Bestseller', img:'images/p05.jpg', alt:'Bengal cat inside a self-cleaning litter box'},
+ {id:6, name:'Feather Wand Toy', cat:'cats', catLabel:'Cats', price:8.50, rating:4.6, reviews:74, badge:'', img:'images/p06.jpg', alt:'Kitten playing indoors'},
+ {id:7, name:'Indoor Cat Dry Food 3kg', cat:'cats', catLabel:'Cats', price:21.25, rating:4.8, reviews:189, badge:'', img:'images/p07.jpg', alt:'Ginger cat eating dry food from a bowl'},
+ {id:8, name:'Window Perch Bed', cat:'cats', catLabel:'Cats', price:27.99, rating:4.7, reviews:143, badge:'New', img:'images/p08.jpg', alt:'Cat lounging in a sunny window opening'},
+ {id:9, name:'Gentle Puppy Shampoo 500ml', cat:'care', catLabel:'Care & Home', price:11.25, rating:4.9, reviews:178, badge:'', img:'images/p09.jpg', alt:'Wet dog being washed with soap suds'},
+ {id:10, name:'Dental Sticks — 28 Pack', cat:'care', catLabel:'Care & Home', price:13.40, rating:4.7, reviews:264, badge:'', img:'images/p10.jpg', alt:'Dog chewing a stick outdoors'},
+ {id:11, name:'Hand-Knit Dog Sweater', cat:'dogs', catLabel:'Dogs', price:18.99, rating:4.8, reviews:342, badge:'Bestseller', img:'images/p11.jpg', alt:'Pug wearing a hand-knit sweater'},
+ {id:12, name:'Calming Drops for Anxious Pets', cat:'care', catLabel:'Care & Home', price:19.95, rating:4.6, reviews:87, badge:'', img:'images/p12.jpg', alt:'Golden retriever sleeping peacefully on a sofa'}
 ];
 const FREE_OVER = 40, DELIVERY_FEE = 4.99;
 const money = n => '$' + n.toFixed(2);
