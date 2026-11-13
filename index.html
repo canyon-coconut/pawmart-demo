@@ -9,11 +9,12 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@600;700&family=Archivo:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-<title>PawMart — Pet Supplies in Springfield | Food, Toys, Beds &amp; Care</title>
+
 <link rel="stylesheet" href="style.css">
+<title>PawMart — Pet Supplies in Springfield | Food, Toys, Beds &amp; Care</title>
 </head>
 <body>
-<div class="topbar">Free delivery on orders over $40 &nbsp;·&nbsp; Same-day dispatch on orders before 4pm &nbsp;·&nbsp; Call us: <a href="tel:+15552140194" style="color:#fff;font-weight:700">(555) 214-0194</a></div>
+<div class="topbar">Free delivery on orders over $40 &nbsp;·&nbsp; First order? 10% off with code <b>WELCOME10</b> &nbsp;·&nbsp; Call us: <a href="tel:+15552140194" style="color:#fff;font-weight:700">(555) 214-0194</a></div>
 
 <header>
   <div class="wrap head-in">
@@ -22,7 +23,7 @@
       <span class="logo-name">Paw<span>Mart</span></span>
     </a>
     <nav class="main" aria-label="Main">
-      <a href="index.html">Home</a><a href="shop.html">Shop</a><a href="shop.html?cat=dogs">Dogs</a><a href="shop.html?cat=cats">Cats</a><a href="shop.html?cat=care">Care &amp; Home</a><a href="about.html">About</a>
+      <a href="dogs.html">Dogs</a><a href="cats.html">Cats</a><a href="care.html">Care &amp; Home</a><a href="shop.html">All Products</a><a href="deals.html">Deals</a><a href="about.html">About</a>
     </nav>
     <div class="head-tools">
       <form class="searchbox" action="shop.html" method="get" role="search">
@@ -45,8 +46,9 @@
         <p class="lead">Family-run pet supplies in Springfield since 2016. Honest prices on food, toys, beds and care for dogs and cats — order by 4pm and it leaves the shop today.</p>
         <div class="hero-cta">
           <a class="btn btn-leaf" href="shop.html">Shop bestsellers</a>
-          <a class="btn btn-ghost" href="about.html#visit">Visit the shop</a>
+          <a class="btn btn-ghost" href="deals.html">This week's deals</a>
         </div>
+        <p class="herodeal">This week: <strong>Orthopedic Dog Bed, save 20%</strong> · first order? <strong>10% off with code WELCOME10</strong></p>
         <div class="trustrow">
           <div><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2E5339" stroke-width="2"><path d="M3 7h11v9H3zM14 10h4l3 3v3h-7z"/><circle cx="7" cy="18" r="1.8"/><circle cx="17" cy="18" r="1.8"/></svg> Free delivery over $40</div>
           <div><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2E5339" stroke-width="2"><path d="M12 3l7 3v5c0 5-3.2 8.2-7 10-3.8-1.8-7-5-7-10V6z"/><path d="M9 12l2 2 4-4"/></svg> Genuine brands only</div>
@@ -59,6 +61,26 @@
     </div>
   </div>
 
+  <!-- SHOP BY PET -->
+  <section style="padding-top:26px">
+    <div class="wrap">
+      <div class="sec-head"><h2 class="sec">Shop by pet</h2></div>
+      <div class="pettiles">
+        <a class="pet-tile" href="dogs.html"><img src="images/tile-dog.jpg" alt="A happy golden dog sitting at home" onerror="imgFallback(this)"><span class="pt-label">Dogs<em>Food, toys, beds &amp; walking</em></span></a>
+        <a class="pet-tile" href="cats.html"><img src="images/tile-cat.jpg" alt="A tabby cat sitting at home" onerror="imgFallback(this)"><span class="pt-label">Cats<em>Food, litter, toys &amp; comfort</em></span></a>
+        <a class="pet-tile" href="care.html"><img src="images/p15.jpg" alt="Pet drinking fountain" onerror="imgFallback(this)"><span class="pt-label">Care &amp; Home<em>Grooming, health &amp; home</em></span></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- DEALS HOME -->
+  <section>
+    <div class="wrap">
+      <div class="sec-head"><h2 class="sec">This week's deals</h2><a class="seclink" href="deals.html">See all deals →</a></div>
+      <div class="grid" id="dealsGridHome"></div>
+    </div>
+  </section>
+
   <!-- FEATURED -->
   <section id="featured" style="padding-top:26px">
     <div class="wrap">
@@ -67,7 +89,20 @@
     </div>
   </section>
 
-  <!-- INFO -->
+  <!-- RANGES -->
+  <section>
+    <div class="wrap">
+      <div class="sec-head"><h2 class="sec">Our own ranges</h2></div>
+      <div class="ranges-row">
+        <div class="range"><h3>PawMart Kitchen</h3><p>Everyday food and treats, made to our own recipes and fed to our own pets first.</p></div>
+        <div class="range"><h3>PawMart Play</h3><p>Toys tested by our own two dogs and one very particular cat.</p></div>
+        <div class="range"><h3>PawMart Care</h3><p>Shampoos, oils and gentle care for skin, coat and teeth.</p></div>
+        <div class="range"><h3>PawMart Comfort</h3><p>Beds, blankets and perches for proper rest.</p></div>
+      </div>
+    </div>
+  </section>
+
+<!-- INFO -->
   <section class="info">
     <div class="wrap info-grid">
       <div class="info-item">
@@ -157,11 +192,11 @@
       </div>
       <div>
         <h3>Shop</h3>
-        <a href="shop.html?cat=dogs">Dogs</a><a href="shop.html?cat=cats">Cats</a><a href="shop.html?cat=care">Care &amp; Home</a><a href="shop.html">All products</a>
+        <a href="dogs.html">Dogs</a><a href="cats.html">Cats</a><a href="care.html">Care &amp; Home</a><a href="shop.html">All products</a><a href="deals.html">Deals &amp; offers</a>
       </div>
       <div>
         <h3>Help</h3>
-        <a href="about.html#visit">Delivery &amp; returns</a><a href="about.html#visit">Opening hours</a><a href="index.html#reviews">Reviews</a><a href="about.html#visit">Contact us</a>
+        <a href="about.html#faq">Delivery &amp; returns</a><a href="about.html#visit">Opening hours</a><a href="index.html#reviews">Reviews</a><a href="about.html#visit">Contact us</a>
       </div>
       <div>
         <h3>Contact</h3>
@@ -194,6 +229,7 @@
       <h3 id="coTitle">Checkout</h3>
       <p class="sub">Delivery to Springfield and nearby towns. Pay cash on delivery or by card.</p>
       <div class="sumbox" id="sumBox"></div>
+      <div class="promorow"><input id="promoIn" type="text" placeholder="Promo code" aria-label="Promo code"><button type="button" id="promoBtn">Apply</button></div><p class="promomsg" id="promoMsg"></p>
       <form id="coForm" novalidate>
         <div class="f-field" id="f-name"><label for="inName">Full name</label><input id="inName" type="text" autocomplete="name" placeholder="e.g. Sara Ahmed"><div class="err">Please enter your name.</div></div>
         <div class="f-field" id="f-phone"><label for="inPhone">Phone number</label><input id="inPhone" type="tel" autocomplete="tel" placeholder="e.g. 555 010 2233"><div class="err">Please enter a valid phone number.</div></div>

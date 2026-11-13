@@ -5,20 +5,20 @@ function imgFallback(el){ el.onerror=null; el.src=FALLBACK; }
 const U = id => 'https://images.unsplash.com/' + id + '?auto=format&fit=crop&w=800&q=60';
 const PRODUCTS = [
  {id:1, name:'Premium Chicken Kibble 5kg', cat:'dogs', catLabel:'Dogs', price:24.99, rating:4.9, reviews:212, badge:'Bestseller', img:'images/p01.jpg', alt:'Unbranded bag of dry dog food with a bowl of kibble', desc:"A complete everyday food for adult dogs, with real chicken as the first ingredient and no artificial colours. Includes rice, vegetables and fish oil for a shiny coat.", specs:[["Weight", "5 kg"], ["For", "Adult dogs"], ["Protein", "26%"], ["Flavour", "Chicken & rice"]]},
- {id:2, name:'Grain-Free Salmon Kibble 4kg', cat:'dogs', catLabel:'Dogs', price:29.50, rating:4.8, reviews:167, badge:'', img:'images/p02.jpg', alt:'Bag of dry dog kibble with kibble pieces in front', desc:"Grain-free and gentle on sensitive stomachs, made with salmon, sweet potato and peas. A good pick for dogs that itch on wheat-based foods.", specs:[["Weight", "4 kg"], ["Recipe", "Grain-free"], ["Protein", "28%"], ["Flavour", "Salmon & sweet potato"]]},
+ {id:2, name:'Grain-Free Salmon Kibble 4kg', cat:'dogs', catLabel:'Dogs', price:29.50, was:34.99, rating:4.8, reviews:167, badge:'', img:'images/p02.jpg', alt:'Bag of dry dog kibble with kibble pieces in front', desc:"Grain-free and gentle on sensitive stomachs, made with salmon, sweet potato and peas. A good pick for dogs that itch on wheat-based foods.", specs:[["Weight", "4 kg"], ["Recipe", "Grain-free"], ["Protein", "28%"], ["Flavour", "Salmon & sweet potato"]]},
  {id:3, name:'Braided Rope Tug Toy', cat:'dogs', catLabel:'Dogs', price:9.99, rating:4.7, reviews:98, badge:'New', img:'images/p03.jpg', alt:'Colourful braided rope tug toy', desc:"Hand-braided from colourful cotton rope with two chunky knots. Built for proper games of tug and for chewing between games \u2014 and it machine-washes when it gets grubby.", specs:[["Length", "38 cm"], ["Material", "Cotton rope"], ["For", "Medium & large dogs"], ["Care", "Machine washable"]]},
  {id:4, name:'Orthopedic Dog Bed — Large', cat:'dogs', catLabel:'Dogs', price:39.99, was:49.99, rating:4.9, reviews:301, badge:'Save 20%', sale:true, img:'images/p04.jpg', alt:'Round grey orthopedic dog bed', desc:"A thick memory-foam base that takes the pressure off hips and elbows \u2014 the bed older dogs and big breeds actually sink into. The cover unzips and washes.", specs:[["Size", "100 \u00d7 70 cm (Large)"], ["Fill", "Memory foam"], ["Cover", "Removable, washable"], ["For", "Large & senior dogs"]]},
- {id:5, name:'Self-Cleaning Litter Box', cat:'cats', catLabel:'Cats', price:89.99, rating:4.8, reviews:256, badge:'Bestseller', img:'images/p05.jpg', alt:'Enclosed self-cleaning cat litter box', desc:"An enclosed automatic litter box that rakes itself clean after every visit, so the tray never sits dirty. The hood keeps smells in and litter off the floor.", specs:[["Type", "Self-cleaning, enclosed"], ["For", "Cats up to 8 kg"], ["Power", "Mains, low voltage"], ["Litter", "Standard clumping"]]},
+ {id:5, name:'Self-Cleaning Litter Box', cat:'cats', catLabel:'Cats', price:89.99, was:109.99, rating:4.8, reviews:256, badge:'Bestseller', img:'images/p05.jpg', alt:'Enclosed self-cleaning cat litter box', desc:"An enclosed automatic litter box that rakes itself clean after every visit, so the tray never sits dirty. The hood keeps smells in and litter off the floor.", specs:[["Type", "Self-cleaning, enclosed"], ["For", "Cats up to 8 kg"], ["Power", "Mains, low voltage"], ["Litter", "Standard clumping"]]},
  {id:6, name:'Feather Wand Toy', cat:'cats', catLabel:'Cats', price:8.50, rating:4.6, reviews:74, badge:'', img:'images/p06.jpg', alt:'Feather wand cat toy with bright feathers', desc:"Natural feathers on a smooth wooden wand \u2014 the toy that turns even a lazy indoor cat into a hunter for ten minutes. Light, quiet and kind to furniture.", specs:[["Length", "45 cm"], ["Materials", "Wood, natural feathers"], ["For", "Cats & kittens"]]},
  {id:7, name:'Indoor Cat Dry Food 3kg', cat:'cats', catLabel:'Cats', price:21.25, rating:4.8, reviews:189, badge:'', img:'images/p07.jpg', alt:'Bag of dry cat food with a bowl of kibble', desc:"A lighter recipe for cats that live indoors, with added fibre to help hairballs pass and a taste picky cats accept. Complete and balanced for daily feeding.", specs:[["Weight", "3 kg"], ["For", "Indoor adult cats"], ["Protein", "30%"], ["Plus", "Hairball control"]]},
  {id:8, name:'Window Perch Bed', cat:'cats', catLabel:'Cats', price:27.99, rating:4.7, reviews:143, badge:'New', img:'images/p08.jpg', alt:'Cat window hammock perch mounted on a window', desc:"A fabric hammock that fixes to the window with strong suction cups, giving your cat a sunny seat with a view. The cover comes off for washing.", specs:[["Size", "55 \u00d7 35 cm"], ["Holds", "Up to 15 kg"], ["Fitting", "Suction cups, no tools"], ["Cover", "Washable"]]},
  {id:9, name:'Gentle Puppy Shampoo 500ml', cat:'care', catLabel:'Care & Home', price:11.25, rating:4.9, reviews:178, badge:'', img:'images/p09.jpg', alt:'Amber pump bottle of puppy shampoo with a blank label', desc:"A mild, tear-free shampoo made for puppies and sensitive skin, pH-balanced for dogs. Lightly scented, never perfumed \u2014 and far gentler than human shampoo.", specs:[["Size", "500 ml"], ["For", "Puppies & sensitive skin"], ["pH", "Balanced for dogs"], ["Scent", "Light, natural"]]},
- {id:10, name:'Dental Chew Sticks — 28 Pack', cat:'care', catLabel:'Care & Home', price:13.40, rating:4.7, reviews:264, badge:'', img:'images/p10.jpg', alt:'Pile of dental chew sticks', desc:"One stick a day helps scrub plaque and tartar as your dog chews, and keeps breath fresher. This pack holds 28 sticks \u2014 a full month for one dog.", specs:[["Pack", "28 sticks"], ["Use", "1 per day"], ["For", "Adult dogs"], ["Flavour", "Chicken"]]},
+ {id:10, name:'Dental Chew Sticks — 28 Pack', cat:'care', catLabel:'Care & Home', price:13.40, was:16.99, rating:4.7, reviews:264, badge:'', img:'images/p10.jpg', alt:'Pile of dental chew sticks', desc:"One stick a day helps scrub plaque and tartar as your dog chews, and keeps breath fresher. This pack holds 28 sticks \u2014 a full month for one dog.", specs:[["Pack", "28 sticks"], ["Use", "1 per day"], ["For", "Adult dogs"], ["Flavour", "Chicken"]]},
  {id:11, name:'Hand-Knit Dog Sweater', cat:'dogs', catLabel:'Dogs', price:18.99, rating:4.8, reviews:342, badge:'Bestseller', img:'images/p11.jpg', alt:'Grey hand-knitted dog sweater laid flat', desc:"Hand-knitted from a soft wool blend to keep small dogs warm on winter walks. Stretchy ribbed neck, and leg holes shaped so they do not rub.", specs:[["Size", "Small (chest 30\u201338 cm)"], ["Material", "Wool blend"], ["Care", "Hand wash"], ["For", "Small dogs"]]},
  {id:12, name:'Washable Calming Blanket', cat:'care', catLabel:'Care & Home', price:19.95, rating:4.6, reviews:87, badge:'', img:'images/p12.jpg', alt:'Folded stack of plaid calming blankets', desc:"A soft plaid fleece blanket whose gentle weight settles anxious dogs at fireworks, travel and bedtime. Machine washable and quick to dry.", specs:[["Size", "100 \u00d7 75 cm"], ["Material", "Soft fleece"], ["Care", "Machine washable"], ["Colour", "Brown plaid"]]},
   {id:13, name:'Cat Scratching Post', cat:'cats', catLabel:'Cats', price:24.99, rating:4.8, reviews:203, badge:'New', img:'images/p13.jpg', alt:'Sisal cat scratching post with a hanging ball toy', desc:"A tall sisal-wrapped post with a sturdy platform on top and a hanging ball for play. Gives claws a proper place to go \u2014 not your sofa.", specs:[["Height", "60 cm"], ["Material", "Natural sisal, wood"], ["Base", "Non-slip"], ["Assembly", "Tool-free"]]},
   {id:14, name:'Leather Collar & Leash Set', cat:'dogs', catLabel:'Dogs', price:16.50, rating:4.9, reviews:158, badge:'', img:'images/p14.jpg', alt:'Brown leather dog collar and leash set', desc:"A matching collar and lead in real brown leather with brass fittings that will not rust. The leather softens with use and lasts for years.", specs:[["Collar", "Adjustable 30\u201345 cm"], ["Leash", "120 cm"], ["Material", "Leather, brass"], ["For", "Medium dogs"]]},
-  {id:15, name:'Pet Drinking Fountain', cat:'care', catLabel:'Care & Home', price:34.99, rating:4.7, reviews:231, badge:'Bestseller', img:'images/p15.jpg', alt:'White pet drinking water fountain with running water', desc:"A quiet 2-litre fountain that keeps water moving, so cats and dogs drink more and the water stays fresh. One filter included \u2014 change it monthly.", specs:[["Capacity", "2 litres"], ["Pump", "Quiet, USB"], ["Filter", "1 included"], ["For", "Cats & small dogs"]]},
+  {id:15, name:'Pet Drinking Fountain', cat:'care', catLabel:'Care & Home', price:34.99, was:44.99, rating:4.7, reviews:231, badge:'Bestseller', img:'images/p15.jpg', alt:'White pet drinking water fountain with running water', desc:"A quiet 2-litre fountain that keeps water moving, so cats and dogs drink more and the water stays fresh. One filter included \u2014 change it monthly.", specs:[["Capacity", "2 litres"], ["Pump", "Quiet, USB"], ["Filter", "1 included"], ["For", "Cats & small dogs"]]},
   {id:16, name:'Wild Salmon Oil — 250ml', cat:'care', catLabel:'Care & Home', price:14.25, rating:4.8, reviews:119, badge:'', img:'images/p16.jpg', alt:'Amber pump bottle of PawMart salmon oil', desc:"Wild salmon oil for skin and coat \u2014 a pump or two over food each day gives omega-3s that show as a glossier coat and less itching.", specs:[["Size", "250 ml"], ["Use", "1\u20132 pumps daily"], ["Source", "Wild salmon"], ["For", "Dogs & cats"]]}
 ];
 const FREE_OVER = 40, DELIVERY_FEE = 4.99;
@@ -42,7 +42,7 @@ function visibleProducts(){
 function cardHTML(p){
   return `
    <article class="pcard">
-     <a class="ph" href="product.html?id=${p.id}" aria-label="${p.name}"><img src="${p.img}" alt="${p.alt}" style="object-position:${p.pos||'50% 50%'}" onerror="imgFallback(this)">${p.badge ? `<span class="badge${p.sale ? ' sale' : ''}">${p.badge}</span>` : ''}</a>
+     <a class="ph" href="product.html?id=${p.id}" aria-label="${p.name}"><img src="${p.img}" alt="${p.alt}" style="object-position:${p.pos||'50% 50%'}" onerror="imgFallback(this)">${p.badge ? `<span class="badge${p.sale ? ' sale' : ''}">${p.badge}</span>` : (p.was ? `<span class="badge sale">Save ${Math.round((1 - p.price/p.was) * 100)}%</span>` : '')}</a>
      <div class="pbody">
        <div class="pcat">${p.catLabel}</div>
        <div class="pname"><a href="product.html?id=${p.id}">${p.name}</a></div>
@@ -76,6 +76,8 @@ document.addEventListener('click', e => {
   setTimeout(()=>{ b.textContent = old; b.classList.remove('added'); }, 1200);
 });
 if(grid){
+  const _sc = document.body.dataset.shopcat;
+  if(_sc){ filter = _sc; document.querySelectorAll('.pill').forEach(el=>el.style.display='none'); }
   const _params = new URLSearchParams(location.search);
   if(_params.get('cat')){ filter = _params.get('cat'); document.querySelectorAll('[data-filter]').forEach(x=>x.classList.toggle('active', x.dataset.filter===filter)); }
   if(_params.get('q')){ query = _params.get('q').toLowerCase(); const _si = document.getElementById('search'); if(_si) _si.value = _params.get('q'); }
@@ -143,13 +145,28 @@ document.querySelectorAll('.payopt').forEach(b => b.addEventListener('click', ()
   document.querySelectorAll('.payopt').forEach(x=>x.classList.remove('sel'));
   b.classList.add('sel'); payMethod = b.dataset.pay;
 }));
+let promoRate = 0;
+function totalsWithPromo(){ const t = cartTotals(); const disc = Math.round(t.sub * promoRate * 100) / 100; return {count:t.count, sub:t.sub, del:t.del, disc:disc, grand: t.sub - disc + t.del}; }
+function renderSummary(){
+  const t = totalsWithPromo();
+  document.getElementById('sumBox').innerHTML = [...cart.entries()].map(([id,qty])=>{ const p=PRODUCTS.find(x=>x.id===id); return `<div class="trow"><span>${p.name} \u00d7 ${qty}</span><span>${money(p.price*qty)}</span></div>`; }).join('')
+    + (t.disc > 0 ? `<div class="trow"><span>Welcome discount (WELCOME10)</span><span>\u2212${money(t.disc)}</span></div>` : '')
+    + `<div class="trow"><span>Delivery</span><span>${t.del===0 ? 'Free' : money(t.del)}</span></div><div class="trow total"><span>Total</span><span>${money(t.grand)}</span></div>`;
+}
+document.getElementById('promoBtn').addEventListener('click', () => {
+  const v = document.getElementById('promoIn').value.trim().toUpperCase();
+  const m = document.getElementById('promoMsg');
+  if(v === 'WELCOME10'){ promoRate = 0.10; m.textContent = 'Code applied \u2014 10% off your order.'; }
+  else { promoRate = 0; m.textContent = 'That code is not one of ours.'; }
+  renderSummary();
+});
+
 document.getElementById('goCheckout').addEventListener('click', () => {
   const t = cartTotals(); if(t.count===0) return;
   closeCart();
   document.getElementById('checkoutFormWrap').style.display='block';
   document.getElementById('successWrap').style.display='none';
-  document.getElementById('sumBox').innerHTML = [...cart.entries()].map(([id,qty])=>{ const p=PRODUCTS.find(x=>x.id===id); return `<div class="trow"><span>${p.name} × ${qty}</span><span>${money(p.price*qty)}</span></div>`; }).join('')
-    + `<div class="trow"><span>Delivery</span><span>${t.del===0 ? 'Free' : money(t.del)}</span></div><div class="trow total"><span>Total</span><span>${money(t.total)}</span></div>`;
+  renderSummary();
   modal.classList.add('open');
 });
 document.getElementById('closeModal').addEventListener('click', () => modal.classList.remove('open'));
@@ -166,12 +183,12 @@ document.getElementById('coForm').addEventListener('submit', e => {
   ok = fieldOK('f-phone', /^\+?\d{7,15}$/.test(phone)) && ok;
   ok = fieldOK('f-addr', addr.length>=8) && ok;
   if(!ok) return;
-  const t = cartTotals();
+  const t = totalsWithPromo();
   document.getElementById('ordNo').textContent = 'PM-2026-' + Math.floor(1000 + Math.random()*9000);
-  document.getElementById('successDetail').textContent = 'Thank you, ' + name.split(' ')[0] + '. ' + t.count + (t.count===1 ? ' item' : ' items') + ' · ' + money(t.total) + ' · ' + payMethod + '. We will call ' + document.getElementById('inPhone').value.trim() + ' to confirm delivery to ' + addr + '.';
+  document.getElementById('successDetail').textContent = 'Thank you, ' + name.split(' ')[0] + '. ' + t.count + (t.count===1 ? ' item' : ' items') + ' · ' + money(t.grand) + ' · ' + payMethod + '. We will call ' + document.getElementById('inPhone').value.trim() + ' to confirm delivery to ' + addr + '.';
   document.getElementById('checkoutFormWrap').style.display='none';
   document.getElementById('successWrap').style.display='block';
-  cart.clear(); syncCart();
+  cart.clear(); promoRate = 0; const _pi = document.getElementById('promoIn'); if(_pi) _pi.value=''; const _pm = document.getElementById('promoMsg'); if(_pm) _pm.textContent=''; syncCart();
 });
 document.getElementById('successClose').addEventListener('click', () => modal.classList.remove('open'));
 
@@ -230,3 +247,5 @@ function renderProduct(){
 }
 renderFeatured();
 renderProduct();
+function renderDeals(){ document.querySelectorAll('#dealsGrid, #dealsGridHome').forEach(el => { const list = PRODUCTS.filter(p=>p.was); el.innerHTML = (el.id==='dealsGridHome' ? list.slice(0,4) : list).map(cardHTML).join(''); }); }
+renderDeals();

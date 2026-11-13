@@ -9,11 +9,12 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@600;700&family=Archivo:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-<title>Product — PawMart</title>
+
 <link rel="stylesheet" href="style.css">
+<title>Product — PawMart</title>
 </head>
 <body>
-<div class="topbar">Free delivery on orders over $40 &nbsp;·&nbsp; Same-day dispatch on orders before 4pm &nbsp;·&nbsp; Call us: <a href="tel:+15552140194" style="color:#fff;font-weight:700">(555) 214-0194</a></div>
+<div class="topbar">Free delivery on orders over $40 &nbsp;·&nbsp; First order? 10% off with code <b>WELCOME10</b> &nbsp;·&nbsp; Call us: <a href="tel:+15552140194" style="color:#fff;font-weight:700">(555) 214-0194</a></div>
 
 <header>
   <div class="wrap head-in">
@@ -22,7 +23,7 @@
       <span class="logo-name">Paw<span>Mart</span></span>
     </a>
     <nav class="main" aria-label="Main">
-      <a href="index.html">Home</a><a href="shop.html">Shop</a><a href="shop.html?cat=dogs">Dogs</a><a href="shop.html?cat=cats">Cats</a><a href="shop.html?cat=care">Care &amp; Home</a><a href="about.html">About</a>
+      <a href="dogs.html">Dogs</a><a href="cats.html">Cats</a><a href="care.html">Care &amp; Home</a><a href="shop.html">All Products</a><a href="deals.html">Deals</a><a href="about.html">About</a>
     </nav>
     <div class="head-tools">
       <form class="searchbox" action="shop.html" method="get" role="search">
@@ -44,7 +45,7 @@
       <div class="grid" id="relGrid"></div>
     </div>
   </section>
-  <!-- INFO -->
+<!-- INFO -->
   <section class="info">
     <div class="wrap info-grid">
       <div class="info-item">
@@ -72,11 +73,11 @@
       </div>
       <div>
         <h3>Shop</h3>
-        <a href="shop.html?cat=dogs">Dogs</a><a href="shop.html?cat=cats">Cats</a><a href="shop.html?cat=care">Care &amp; Home</a><a href="shop.html">All products</a>
+        <a href="dogs.html">Dogs</a><a href="cats.html">Cats</a><a href="care.html">Care &amp; Home</a><a href="shop.html">All products</a><a href="deals.html">Deals &amp; offers</a>
       </div>
       <div>
         <h3>Help</h3>
-        <a href="about.html#visit">Delivery &amp; returns</a><a href="about.html#visit">Opening hours</a><a href="index.html#reviews">Reviews</a><a href="about.html#visit">Contact us</a>
+        <a href="about.html#faq">Delivery &amp; returns</a><a href="about.html#visit">Opening hours</a><a href="index.html#reviews">Reviews</a><a href="about.html#visit">Contact us</a>
       </div>
       <div>
         <h3>Contact</h3>
@@ -109,6 +110,7 @@
       <h3 id="coTitle">Checkout</h3>
       <p class="sub">Delivery to Springfield and nearby towns. Pay cash on delivery or by card.</p>
       <div class="sumbox" id="sumBox"></div>
+      <div class="promorow"><input id="promoIn" type="text" placeholder="Promo code" aria-label="Promo code"><button type="button" id="promoBtn">Apply</button></div><p class="promomsg" id="promoMsg"></p>
       <form id="coForm" novalidate>
         <div class="f-field" id="f-name"><label for="inName">Full name</label><input id="inName" type="text" autocomplete="name" placeholder="e.g. Sara Ahmed"><div class="err">Please enter your name.</div></div>
         <div class="f-field" id="f-phone"><label for="inPhone">Phone number</label><input id="inPhone" type="tel" autocomplete="tel" placeholder="e.g. 555 010 2233"><div class="err">Please enter a valid phone number.</div></div>
