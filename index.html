@@ -42,7 +42,7 @@ nav.main a{text-decoration:none;font-weight:600;font-size:15px;color:var(--ink2)
 nav.main a:hover{color:var(--leaf)}
 .head-tools{margin-left:auto;display:flex;align-items:center;gap:12px}
 .searchbox{position:relative}
-.searchbox input{width:210px;padding:10px 14px 10px 38px;border:1px solid var(--line);border-radius:999px;background:var(--card);font-family:inherit;font-size:14.5px;color:var(--ink)}
+.searchbox input{width:225px;padding:10px 14px 10px 38px;border:1px solid var(--line);border-radius:999px;background:var(--card);font-family:inherit;font-size:14.5px;color:var(--ink)}
 .searchbox svg{position:absolute;left:12px;top:50%;transform:translateY(-50%)}
 .cartbtn{position:relative;background:var(--leaf);color:#fff;border:none;border-radius:999px;padding:11px 18px;font-weight:700;font-size:15px;display:flex;align-items:center;gap:8px}
 .cartbtn:hover{background:var(--leaf-d)}
@@ -63,7 +63,8 @@ nav.main a:hover{color:var(--leaf)}
 .hero-photo img{width:100%;height:100%;object-fit:cover;aspect-ratio:4/3}
 
 /* sections */
-section{padding:44px 0}
+section{padding:44px 0;scroll-margin-top:96px}
+#shop{scroll-margin-top:96px}
 .sec-head{display:flex;align-items:baseline;justify-content:space-between;gap:16px;margin-bottom:22px;flex-wrap:wrap}
 .sec-head h2{font-size:30px}
 .sec-head p{color:var(--ink2)}
@@ -78,18 +79,18 @@ section{padding:44px 0}
 /* products */
 .grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
 .pcard{background:var(--card);border:1px solid var(--line);border-radius:var(--r);overflow:hidden;display:flex;flex-direction:column}
-.pcard .ph{position:relative;aspect-ratio:4/3;background:var(--paper2)}
-.pcard .ph img{width:100%;height:100%;object-fit:cover}
+.pcard .ph{position:relative;height:210px;background:var(--paper2);overflow:hidden}
+.pcard .ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
 .badge{position:absolute;top:10px;left:10px;background:var(--clay);color:#fff;font-size:12px;font-weight:700;padding:4px 10px;border-radius:999px}
 .badge.sale{background:#B5502A}
 .pbody{padding:16px;display:flex;flex-direction:column;gap:6px;flex:1}
 .pcat{font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--clay-d)}
-.pname{font-weight:600;font-size:16.5px;line-height:1.3}
+.pname{font-weight:600;font-size:16.5px;line-height:1.3;min-height:44px}
 .stars{display:flex;align-items:center;gap:6px;font-size:13.5px;color:var(--ink2)}
 .prow{margin-top:auto;display:flex;align-items:center;justify-content:space-between;gap:10px;padding-top:8px}
 .price{font-family:'Fraunces',serif;font-size:21px;font-weight:700}
 .price s{font-family:'Archivo',sans-serif;font-size:14px;color:var(--ink2);font-weight:500;margin-right:6px}
-.addbtn{background:var(--leaf);color:#fff;border:none;border-radius:10px;padding:10px 16px;font-weight:700;font-size:14.5px}
+.addbtn{background:var(--leaf);color:#fff;border:none;border-radius:10px;padding:10px 16px;font-weight:700;font-size:14.5px;white-space:nowrap}
 .addbtn:hover{background:var(--leaf-d)}
 .addbtn.added{background:var(--clay)}
 .noresults{grid-column:1/-1;text-align:center;color:var(--ink2);padding:32px 0;font-size:17px}
@@ -201,6 +202,7 @@ footer p{font-size:15px;color:#CFC6AE}
   .foot-grid{grid-template-columns:1fr 1fr}
 }
 @media (max-width:600px){
+  .pcard .ph{height:150px}
   .grid{grid-template-columns:repeat(2,1fr);gap:12px}
   .searchbox input{width:150px}
   .head-in{flex-wrap:wrap}
@@ -226,7 +228,7 @@ footer p{font-size:15px;color:#CFC6AE}
     <div class="head-tools">
       <div class="searchbox">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#4A5546" stroke-width="2.4"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.8-3.8"/></svg>
-        <input id="search" type="search" placeholder="Search food, toys, beds…" aria-label="Search products">
+        <input id="search" type="search" placeholder="Search the shop…" aria-label="Search products">
       </div>
       <button class="cartbtn" id="openCart" aria-label="Open cart">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2"><circle cx="9" cy="20" r="1.6"/><circle cx="17" cy="20" r="1.6"/><path d="M2 3h3l2.6 12.4a1.5 1.5 0 0 0 1.5 1.1h7.9a1.5 1.5 0 0 0 1.5-1.2L20.5 7H6"/></svg>
@@ -437,15 +439,15 @@ function imgFallback(el){ el.onerror=null; el.src=FALLBACK; }
 const U = id => 'https://images.unsplash.com/' + id + '?auto=format&fit=crop&w=800&q=60';
 const PRODUCTS = [
  {id:1, name:'Premium Chicken Kibble 5kg', cat:'dogs', catLabel:'Dogs', price:24.99, rating:4.9, reviews:212, badge:'Bestseller', img:'images/p01.jpg', alt:'Dog eating from a bowl of kibble'},
- {id:2, name:'Grain-Free Salmon Kibble 4kg', cat:'dogs', catLabel:'Dogs', price:29.50, rating:4.8, reviews:167, badge:'', img:'images/p02.jpg', alt:'Two happy dogs running outside'},
+ {id:2, name:'Grain-Free Salmon Kibble 4kg', cat:'dogs', catLabel:'Dogs', price:29.50, rating:4.8, reviews:167, badge:'', img:'images/p02.jpg', alt:'Dog eating from a steel bowl on grass'},
  {id:3, name:'Braided Rope Tug Toy', cat:'dogs', catLabel:'Dogs', price:9.99, rating:4.7, reviews:98, badge:'New', img:'images/p03.jpg', alt:'Dog playing tug with a braided rope toy'},
- {id:4, name:'Orthopedic Dog Bed — Large', cat:'dogs', catLabel:'Dogs', price:39.99, was:49.99, rating:4.9, reviews:301, badge:'Save 20%', sale:true, img:'images/p04.jpg', alt:'Puppy sleeping on a round dog bed'},
+ {id:4, name:'Orthopedic Dog Bed — Large', cat:'dogs', catLabel:'Dogs', price:39.99, was:49.99, rating:4.9, reviews:301, badge:'Save 20%', sale:true, img:'images/p04.jpg', alt:'Dog sleeping on a cushioned dog bed'},
  {id:5, name:'Self-Cleaning Litter Box', cat:'cats', catLabel:'Cats', price:89.99, rating:4.8, reviews:256, badge:'Bestseller', img:'images/p05.jpg', alt:'Bengal cat inside a self-cleaning litter box'},
  {id:6, name:'Feather Wand Toy', cat:'cats', catLabel:'Cats', price:8.50, rating:4.6, reviews:74, badge:'', img:'images/p06.jpg', alt:'Kitten playing indoors'},
  {id:7, name:'Indoor Cat Dry Food 3kg', cat:'cats', catLabel:'Cats', price:21.25, rating:4.8, reviews:189, badge:'', img:'images/p07.jpg', alt:'Ginger cat eating dry food from a bowl'},
  {id:8, name:'Window Perch Bed', cat:'cats', catLabel:'Cats', price:27.99, rating:4.7, reviews:143, badge:'New', img:'images/p08.jpg', alt:'Cat lounging in a sunny window opening'},
  {id:9, name:'Gentle Puppy Shampoo 500ml', cat:'care', catLabel:'Care & Home', price:11.25, rating:4.9, reviews:178, badge:'', img:'images/p09.jpg', alt:'Wet dog being washed with soap suds'},
- {id:10, name:'Dental Sticks — 28 Pack', cat:'care', catLabel:'Care & Home', price:13.40, rating:4.7, reviews:264, badge:'', img:'images/p10.jpg', alt:'Dog chewing a stick outdoors'},
+ {id:10, name:'Dental Chew Sticks — 28 Pack', cat:'care', catLabel:'Care & Home', price:13.40, rating:4.7, reviews:264, badge:'', img:'images/p10.jpg', alt:'Puppy chewing a dental chew stick'},
  {id:11, name:'Hand-Knit Dog Sweater', cat:'dogs', catLabel:'Dogs', price:18.99, rating:4.8, reviews:342, badge:'Bestseller', img:'images/p11.jpg', alt:'Pug wearing a hand-knit sweater'},
  {id:12, name:'Calming Drops for Anxious Pets', cat:'care', catLabel:'Care & Home', price:19.95, rating:4.6, reviews:87, badge:'', img:'images/p12.jpg', alt:'Golden retriever sleeping peacefully on a sofa'}
 ];
@@ -472,7 +474,7 @@ function render(){
   if(!list.length){ grid.innerHTML = '<div class="noresults">No products match your search. Try a different word or category.</div>'; return; }
   grid.innerHTML = list.map(p => `
    <article class="pcard">
-     <div class="ph"><img src="${p.img}" alt="${p.alt}" loading="lazy" onerror="imgFallback(this)">${p.badge ? `<span class="badge${p.sale ? ' sale' : ''}">${p.badge}</span>` : ''}</div>
+     <div class="ph"><img src="${p.img}" alt="${p.alt}" onerror="imgFallback(this)">${p.badge ? `<span class="badge${p.sale ? ' sale' : ''}">${p.badge}</span>` : ''}</div>
      <div class="pbody">
        <div class="pcat">${p.catLabel}</div>
        <div class="pname">${p.name}</div>
