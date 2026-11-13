@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PawMart — Pet Supplies, Springfield | Food, Toys & Care for Dogs and Cats</title>
+<meta name="description" content="PawMart is Springfield's family-run pet supplies shop. Dog and cat food, toys, beds and care — free delivery on orders over $40, same-day dispatch.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@600;700&family=Archivo:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#FAF6EF; --paper2:#F2EADA; --card:#FFFDF8;
+  --ink:#22301F; --ink2:#4A5546;
+  --leaf:#2E5339; --leaf-d:#23422C;
+  --clay:#C96F2E; --clay-d:#A85A24;
+  --line:#E2D7C2; --star:#E8A33D;
+  --r:14px; --sp:24px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Archivo',sans-serif;background:var(--paper);color:var(--ink);font-size:16px;line-height:1.55}
+img{display:block;max-width:100%}
+a{color:inherit}
+.wrap{max-width:1120px;margin:0 auto;padding:0 20px}
+h1,h2,h3{font-family:'Fraunces',serif;font-weight:700;line-height:1.15;color:var(--ink)}
+button{font-family:inherit;cursor:pointer}
+:focus-visible{outline:3px solid var(--clay);outline-offset:2px}
+
+/* top strip */
+.topbar{background:var(--leaf);color:#F5EFE2;font-size:13.5px;text-align:center;padding:8px 16px;font-weight:500}
+
+/* header */
+header{position:sticky;top:0;background:var(--paper);border-bottom:1px solid var(--line);z-index:40}
+.head-in{display:flex;align-items:center;gap:20px;padding:14px 0}
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none;flex-shrink:0}
+.logo-badge{width:42px;height:42px;border-radius:50%;background:var(--leaf);display:flex;align-items:center;justify-content:center}
+.logo-name{font-family:'Fraunces',serif;font-size:26px;font-weight:700}
+.logo-name span{color:var(--clay)}
+nav.main{display:flex;gap:22px;margin-left:8px}
+nav.main a{text-decoration:none;font-weight:600;font-size:15px;color:var(--ink2)}
+nav.main a:hover{color:var(--leaf)}
+.head-tools{margin-left:auto;display:flex;align-items:center;gap:12px}
+.searchbox{position:relative}
+.searchbox input{width:210px;padding:10px 14px 10px 38px;border:1px solid var(--line);border-radius:999px;background:var(--card);font-family:inherit;font-size:14.5px;color:var(--ink)}
+.searchbox svg{position:absolute;left:12px;top:50%;transform:translateY(-50%)}
+.cartbtn{position:relative;background:var(--leaf);color:#fff;border:none;border-radius:999px;padding:11px 18px;font-weight:700;font-size:15px;display:flex;align-items:center;gap:8px}
+.cartbtn:hover{background:var(--leaf-d)}
+.cartcount{background:var(--clay);color:#fff;border-radius:999px;min-width:22px;height:22px;display:inline-flex;align-items:center;justify-content:center;font-size:13px;padding:0 6px}
+
+/* hero */
+.hero{padding:48px 0 40px}
+.hero-in{display:grid;grid-template-columns:1.05fr 1fr;gap:40px;align-items:center}
+.hero h1{font-size:44px;margin-bottom:16px}
+.hero p.lead{font-size:18px;color:var(--ink2);max-width:46ch;margin-bottom:24px}
+.btn{display:inline-flex;align-items:center;gap:8px;border:none;border-radius:999px;padding:14px 26px;font-weight:700;font-size:16px;text-decoration:none}
+.btn-leaf{background:var(--leaf);color:#fff}.btn-leaf:hover{background:var(--leaf-d)}
+.btn-ghost{background:transparent;color:var(--leaf);border:2px solid var(--leaf)}
+.hero-cta{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:26px}
+.trustrow{display:flex;gap:20px;flex-wrap:wrap}
+.trustrow div{display:flex;align-items:center;gap:8px;font-size:14.5px;font-weight:600;color:var(--ink2)}
+.hero-photo{border-radius:20px;overflow:hidden;border:1px solid var(--line)}
+.hero-photo img{width:100%;height:100%;object-fit:cover;aspect-ratio:4/3}
+
+/* sections */
+section{padding:44px 0}
+.sec-head{display:flex;align-items:baseline;justify-content:space-between;gap:16px;margin-bottom:22px;flex-wrap:wrap}
+.sec-head h2{font-size:30px}
+.sec-head p{color:var(--ink2)}
+
+/* filters */
+.filters{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-bottom:24px}
+.pill{border:1.5px solid var(--line);background:var(--card);border-radius:999px;padding:9px 18px;font-weight:600;font-size:14.5px;color:var(--ink2)}
+.pill.active{background:var(--leaf);border-color:var(--leaf);color:#fff}
+.sortbox{margin-left:auto;display:flex;align-items:center;gap:8px;font-size:14.5px;color:var(--ink2);font-weight:600}
+.sortbox select{font-family:inherit;font-size:14.5px;padding:9px 10px;border:1px solid var(--line);border-radius:10px;background:var(--card);color:var(--ink)}
+
+/* products */
+.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.pcard{background:var(--card);border:1px solid var(--line);border-radius:var(--r);overflow:hidden;display:flex;flex-direction:column}
+.pcard .ph{position:relative;aspect-ratio:4/3;background:var(--paper2)}
+.pcard .ph img{width:100%;height:100%;object-fit:cover}
+.badge{position:absolute;top:10px;left:10px;background:var(--clay);color:#fff;font-size:12px;font-weight:700;padding:4px 10px;border-radius:999px}
+.badge.sale{background:#B5502A}
+.pbody{padding:16px;display:flex;flex-direction:column;gap:6px;flex:1}
+.pcat{font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--clay-d)}
+.pname{font-weight:600;font-size:16.5px;line-height:1.3}
+.stars{display:flex;align-items:center;gap:6px;font-size:13.5px;color:var(--ink2)}
+.prow{margin-top:auto;display:flex;align-items:center;justify-content:space-between;gap:10px;padding-top:8px}
+.price{font-family:'Fraunces',serif;font-size:21px;font-weight:700}
+.price s{font-family:'Archivo',sans-serif;font-size:14px;color:var(--ink2);font-weight:500;margin-right:6px}
+.addbtn{background:var(--leaf);color:#fff;border:none;border-radius:10px;padding:10px 16px;font-weight:700;font-size:14.5px}
+.addbtn:hover{background:var(--leaf-d)}
+.addbtn.added{background:var(--clay)}
+.noresults{grid-column:1/-1;text-align:center;color:var(--ink2);padding:32px 0;font-size:17px}
+
+/* info strip */
+.info{background:var(--paper2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.info-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
+.info-item{display:flex;gap:14px}
+.info-item .ic{flex-shrink:0;width:46px;height:46px;border-radius:12px;background:var(--card);border:1px solid var(--line);display:flex;align-items:center;justify-content:center}
+.info-item h3{font-size:18px;margin-bottom:4px}
+.info-item p{color:var(--ink2);font-size:15px}
+
+/* reviews */
+.rate-summary{display:flex;align-items:center;gap:18px;background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:20px 24px;margin-bottom:20px;flex-wrap:wrap}
+.rate-num{font-family:'Fraunces',serif;font-size:44px;font-weight:700;line-height:1}
+.gword{font-weight:700;font-size:17px}
+.gword .g1{color:#4285F4}.gword .g2{color:#EA4335}.gword .g3{color:#FBBC05}.gword .g4{color:#4285F4}.gword .g5{color:#34A853}.gword .g6{color:#EA4335}
+.rev-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.rev{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:20px}
+.rev-head{display:flex;align-items:center;gap:12px;margin-bottom:10px}
+.avatar{width:42px;height:42px;border-radius:50%;background:var(--leaf);color:#fff;font-weight:700;display:flex;align-items:center;justify-content:center;font-size:16px}
+.avatar.c2{background:var(--clay)}.avatar.c3{background:#7A5C2E}
+.rev-name{font-weight:700;font-size:15.5px}
+.rev-meta{font-size:13px;color:var(--ink2)}
+.rev p{font-size:15px;color:var(--ink2)}
+.via{margin-top:10px;font-size:12.5px;color:var(--ink2)}
+
+/* visit */
+.visit-in{display:grid;grid-template-columns:1.2fr 1fr;gap:40px;align-items:start}
+.visit h2{font-size:30px;margin-bottom:12px}
+.visit p{color:var(--ink2);max-width:52ch}
+.hours{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:22px}
+.hours h3{font-size:19px;margin-bottom:12px}
+.hours table{width:100%;border-collapse:collapse;font-size:15px}
+.hours td{padding:6px 0;border-bottom:1px solid var(--line)}
+.hours tr:last-child td{border-bottom:none}
+.hours td:last-child{text-align:right;font-weight:600}
+
+/* footer */
+footer{background:var(--ink);color:#EDE6D6;margin-top:8px}
+.foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1.2fr;gap:32px;padding:44px 0 32px}
+footer h3{color:#fff;font-size:18px;margin-bottom:14px}
+footer a{color:#EDE6D6;text-decoration:none;display:block;padding:3px 0;font-size:15px}
+footer a:hover{text-decoration:underline}
+footer p{font-size:15px;color:#CFC6AE}
+.foot-logo{font-family:'Fraunces',serif;font-size:26px;color:#fff;font-weight:700;margin-bottom:10px}
+.foot-logo span{color:var(--clay)}
+.foot-bottom{border-top:1px solid #3A4636;padding:16px 0;font-size:13.5px;color:#B7AE97;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+
+/* drawer + modal */
+.overlay{position:fixed;inset:0;background:rgba(24,32,20,.5);opacity:0;pointer-events:none;transition:opacity .25s;z-index:60}
+.overlay.open{opacity:1;pointer-events:auto}
+.drawer{position:fixed;top:0;right:0;height:100%;width:400px;max-width:92vw;background:var(--paper);z-index:70;transform:translateX(105%);transition:transform .3s;display:flex;flex-direction:column;box-shadow:-8px 0 30px rgba(0,0,0,.18)}
+.drawer.open{transform:none}
+.drawer-head{display:flex;align-items:center;justify-content:space-between;padding:18px 20px;border-bottom:1px solid var(--line)}
+.drawer-head h3{font-size:21px}
+.xbtn{background:none;border:none;font-size:24px;line-height:1;color:var(--ink2);padding:4px 8px}
+.drawer-items{flex:1;overflow-y:auto;padding:16px 20px;display:flex;flex-direction:column;gap:14px}
+.citem{display:flex;gap:12px;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:10px}
+.citem img{width:64px;height:64px;border-radius:8px;object-fit:cover}
+.citem .nm{font-weight:600;font-size:14.5px;line-height:1.3}
+.citem .pr{font-weight:700;font-size:14.5px;color:var(--leaf)}
+.qty{display:inline-flex;align-items:center;gap:2px;border:1px solid var(--line);border-radius:999px;margin-top:6px}
+.qty button{width:26px;height:26px;border:none;background:none;font-size:16px;font-weight:700;color:var(--leaf)}
+.qty span{min-width:22px;text-align:center;font-weight:700;font-size:14px}
+.rm{margin-left:auto;background:none;border:none;color:#B5502A;font-size:13px;font-weight:600;align-self:flex-start}
+.drawer-foot{border-top:1px solid var(--line);padding:18px 20px;background:var(--card)}
+.trow{display:flex;justify-content:space-between;font-size:15px;padding:3px 0;color:var(--ink2)}
+.trow.total{font-size:18px;font-weight:700;color:var(--ink);border-top:1px solid var(--line);margin-top:8px;padding-top:10px}
+.freebar{height:8px;background:var(--paper2);border-radius:99px;overflow:hidden;margin:8px 0 4px}
+.freebar div{height:100%;background:var(--leaf);border-radius:99px;transition:width .3s}
+.freenote{font-size:13px;color:var(--ink2);margin-bottom:10px}
+.checkoutbtn{width:100%;background:var(--clay);color:#fff;border:none;border-radius:12px;padding:15px;font-size:16.5px;font-weight:700}
+.checkoutbtn:hover{background:var(--clay-d)}
+.emptycart{text-align:center;color:var(--ink2);padding:36px 0}
+
+.modal{position:fixed;inset:0;z-index:80;display:none;align-items:flex-start;justify-content:center;overflow-y:auto;padding:28px 16px}
+.modal.open{display:flex}
+.modal-box{background:var(--paper);border-radius:18px;max-width:560px;width:100%;padding:28px;position:relative;box-shadow:0 24px 60px rgba(0,0,0,.3)}
+.modal-box h3{font-size:24px;margin-bottom:6px}
+.modal-box .sub{color:var(--ink2);margin-bottom:18px;font-size:15px}
+.f-field{margin-bottom:14px}
+.f-field label{display:block;font-weight:600;font-size:14.5px;margin-bottom:6px}
+.f-field input,.f-field select{width:100%;padding:12px 14px;border:1px solid var(--line);border-radius:10px;font-family:inherit;font-size:15.5px;background:var(--card);color:var(--ink)}
+.f-field .err{display:none;color:#B3261E;font-size:13px;margin-top:4px;font-weight:600}
+.f-field.invalid input{border-color:#B3261E}
+.f-field.invalid .err{display:block}
+.payrow{display:flex;gap:10px;margin:6px 0 16px}
+.payopt{flex:1;border:1.5px solid var(--line);border-radius:12px;padding:12px;text-align:center;font-weight:600;background:var(--card);font-size:15px}
+.payopt.sel{border-color:var(--leaf);background:#EFF3EA}
+.sumbox{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 16px;margin-bottom:16px;font-size:14.5px}
+.success{text-align:center;padding:12px 0}
+.success .tick{width:70px;height:70px;border-radius:50%;background:var(--leaf);margin:0 auto 16px;display:flex;align-items:center;justify-content:center}
+.success h3{margin-bottom:8px}
+.success p{color:var(--ink2)}
+.success .ordno{font-family:'Fraunces',serif;font-size:22px;font-weight:700;color:var(--ink);margin:10px 0}
+
+.toast{position:fixed;left:50%;bottom:26px;transform:translate(-50%,80px);background:var(--ink);color:#fff;padding:13px 22px;border-radius:999px;font-weight:600;font-size:15px;z-index:90;transition:transform .3s;box-shadow:0 10px 30px rgba(0,0,0,.25)}
+.toast.show{transform:translate(-50%,0)}
+
+@media (max-width:900px){
+  .grid{grid-template-columns:repeat(3,1fr)}
+  nav.main{display:none}
+  .hero-in{grid-template-columns:1fr}
+  .hero{padding:32px 0}
+  .hero h1{font-size:34px}
+  .rev-grid,.info-grid{grid-template-columns:1fr}
+  .visit-in{grid-template-columns:1fr}
+  .foot-grid{grid-template-columns:1fr 1fr}
+}
+@media (max-width:600px){
+  .grid{grid-template-columns:repeat(2,1fr);gap:12px}
+  .searchbox input{width:150px}
+  .head-in{flex-wrap:wrap}
+  .sortbox{margin-left:0}
+  .price{font-size:18px}
+  .addbtn{padding:9px 12px;font-size:13.5px}
+}
+</style>
+</head>
+<body>
+
+<div class="topbar">Free delivery on orders over $40 &nbsp;·&nbsp; Same-day dispatch on orders before 4pm &nbsp;·&nbsp; Call us: <a href="tel:+15552140194" style="color:#fff;font-weight:700">(555) 214-0194</a></div>
+
+<header>
+  <div class="wrap head-in">
+    <a class="logo" href="#" aria-label="PawMart home">
+      <span class="logo-badge" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" fill="#FAF6EF"><ellipse cx="12" cy="15.5" rx="4.4" ry="3.6"/><circle cx="5.6" cy="10.5" r="1.9"/><circle cx="9.2" cy="7.6" r="2.1"/><circle cx="13.6" cy="7.2" r="2.1"/><circle cx="17.6" cy="10.2" r="1.9"/></svg></span>
+      <span class="logo-name">Paw<span>Mart</span></span>
+    </a>
+    <nav class="main" aria-label="Main">
+      <a href="#shop">Shop</a><a href="#shop" data-nav="dogs">Dogs</a><a href="#shop" data-nav="cats">Cats</a><a href="#shop" data-nav="care">Care &amp; Home</a><a href="#reviews">Reviews</a><a href="#visit">Visit Us</a>
+    </nav>
+    <div class="head-tools">
+      <div class="searchbox">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#4A5546" stroke-width="2.4"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.8-3.8"/></svg>
+        <input id="search" type="search" placeholder="Search food, toys, beds…" aria-label="Search products">
+      </div>
+      <button class="cartbtn" id="openCart" aria-label="Open cart">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2"><circle cx="9" cy="20" r="1.6"/><circle cx="17" cy="20" r="1.6"/><path d="M2 3h3l2.6 12.4a1.5 1.5 0 0 0 1.5 1.1h7.9a1.5 1.5 0 0 0 1.5-1.2L20.5 7H6"/></svg>
+        Cart <span class="cartcount" id="cartCount">0</span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main>
+  <!-- HERO -->
+  <div class="hero">
+    <div class="wrap hero-in">
+      <div>
+        <h1>Everything your pet needs, delivered to your door</h1>
+        <p class="lead">Family-run pet supplies in Springfield since 2016. Honest prices on food, toys, beds and care for dogs and cats — order by 4pm and it leaves the shop today.</p>
+        <div class="hero-cta">
+          <a class="btn btn-leaf" href="#shop">Shop bestsellers</a>
+          <a class="btn btn-ghost" href="#visit">Visit the shop</a>
+        </div>
+        <div class="trustrow">
+          <div><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2E5339" stroke-width="2"><path d="M3 7h11v9H3zM14 10h4l3 3v3h-7z"/><circle cx="7" cy="18" r="1.8"/><circle cx="17" cy="18" r="1.8"/></svg> Free delivery over $40</div>
+          <div><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2E5339" stroke-width="2"><path d="M12 3l7 3v5c0 5-3.2 8.2-7 10-3.8-1.8-7-5-7-10V6z"/><path d="M9 12l2 2 4-4"/></svg> Genuine brands only</div>
+          <div><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2E5339" stroke-width="2"><path d="M3 12a9 9 0 1 0 3-6.7M3 4v5h5"/></svg> 30-day easy returns</div>
+        </div>
+      </div>
+      <div class="hero-photo">
+        <img src="https://images.unsplash.com/photo-1450778869180-41d0601e046e?auto=format&fit=crop&w=1000&q=60" alt="A dog and a cat resting together" onerror="imgFallback(this)">
+      </div>
+    </div>
+  </div>
+
+  <!-- SHOP -->
+  <section id="shop" style="padding-top:8px">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2>Shop</h2>
+        <p id="resultCount" aria-live="polite"></p>
+      </div>
+      <div class="filters" role="group" aria-label="Filter by category">
+        <button class="pill active" data-filter="all">All</button>
+        <button class="pill" data-filter="dogs">Dogs</button>
+        <button class="pill" data-filter="cats">Cats</button>
+        <button class="pill" data-filter="care">Care &amp; Home</button>
+        <div class="sortbox">
+          <label for="sort">Sort</label>
+          <select id="sort">
+            <option value="featured">Featured</option>
+            <option value="low">Price: low to high</option>
+            <option value="high">Price: high to low</option>
+            <option value="rating">Top rated</option>
+          </select>
+        </div>
+      </div>
+      <div class="grid" id="grid"></div>
+    </div>
+  </section>
+
+  <!-- INFO -->
+  <section class="info">
+    <div class="wrap info-grid">
+      <div class="info-item">
+        <div class="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#2E5339" stroke-width="2"><path d="M3 7h11v9H3zM14 10h4l3 3v3h-7z"/><circle cx="7" cy="18" r="1.8"/><circle cx="17" cy="18" r="1.8"/></svg></div>
+        <div><h3>Fast, fair delivery</h3><p>Free on orders over $40, otherwise a flat $4.99. Orders before 4pm leave the same day, anywhere in the Springfield area.</p></div>
+      </div>
+      <div class="info-item">
+        <div class="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#2E5339" stroke-width="2"><path d="M12 3l7 3v5c0 5-3.2 8.2-7 10-3.8-1.8-7-5-7-10V6z"/><path d="M9 12l2 2 4-4"/></svg></div>
+        <div><h3>Genuine products</h3><p>Every bag and bottle comes from authorised distributors. No grey imports, no short-dated stock — ever.</p></div>
+      </div>
+      <div class="info-item">
+        <div class="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#2E5339" stroke-width="2"><path d="M3 12a9 9 0 1 0 3-6.7M3 4v5h5"/></svg></div>
+        <div><h3>30-day returns</h3><p>Wrong size, fussy eater, changed your mind — bring it back within 30 days for a full refund, no questions.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- REVIEWS -->
+  <section id="reviews">
+    <div class="wrap">
+      <div class="sec-head"><h2>What our customers say</h2></div>
+      <div class="rate-summary">
+        <div class="rate-num" id="rateNum">4.9</div>
+        <div>
+          <div class="stars" data-stars="5" style="font-size:15px"></div>
+          <div style="margin-top:4px">Rated by <strong>480+ customers</strong> on <span class="gword"><span class="g1">G</span><span class="g2">o</span><span class="g3">o</span><span class="g4">g</span><span class="g5">l</span><span class="g6">e</span></span></div>
+        </div>
+      </div>
+      <div class="rev-grid">
+        <article class="rev">
+          <div class="rev-head"><div class="avatar">A</div><div><div class="rev-name">Ayesha K.</div><div class="rev-meta">2 weeks ago · Springfield</div></div></div>
+          <div class="stars" data-stars="5"></div>
+          <p style="margin-top:8px">Food arrived the same day I ordered. My cat is picky with everything and she finished the whole bowl. This is our regular shop now.</p>
+          <div class="via">Posted on Google</div>
+        </article>
+        <article class="rev">
+          <div class="rev-head"><div class="avatar c2">D</div><div><div class="rev-name">Daniel M.</div><div class="rev-meta">1 month ago · Riverton</div></div></div>
+          <div class="stars" data-stars="5"></div>
+          <p style="margin-top:8px">Fair prices and the dog bed is better quality than the big chain stores. Ordered twice, both times delivered next morning.</p>
+          <div class="via">Posted on Google</div>
+        </article>
+        <article class="rev">
+          <div class="rev-head"><div class="avatar c3">P</div><div><div class="rev-name">Priya S.</div><div class="rev-meta">3 weeks ago · Springfield</div></div></div>
+          <div class="stars" data-stars="4"></div>
+          <p style="margin-top:8px">Staff helped me pick the right food for my puppy over the phone instead of just selling me the expensive one. Lovely people.</p>
+          <div class="via">Posted on Google</div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- VISIT -->
+  <section id="visit" class="visit" style="padding-top:4px">
+    <div class="wrap visit-in">
+      <div>
+        <h2>Visit the shop</h2>
+        <p>PawMart is a family shop, run by the Okafor family since 2016. Come in for free advice on food and care — bring your pet, they're welcome in store. Find us at <strong>214 Oak Street, Springfield</strong>, next to the post office.</p>
+        <p style="margin-top:12px">Call us: <a href="tel:+15552140194" style="font-weight:700;color:var(--leaf)">(555) 214-0194</a> &nbsp;·&nbsp; Email: <a href="mailto:hello@pawmart.example" style="font-weight:700;color:var(--leaf)">hello@pawmart.example</a></p>
+      </div>
+      <div class="hours">
+        <h3>Opening hours</h3>
+        <table>
+          <tr><td>Monday – Friday</td><td>9:00 – 19:00</td></tr>
+          <tr><td>Saturday</td><td>9:00 – 17:00</td></tr>
+          <tr><td>Sunday</td><td>10:00 – 14:00</td></tr>
+        </table>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer id="contact">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <div class="foot-logo">Paw<span>Mart</span></div>
+        <p>Family-run pet supplies in Springfield since 2016. Food, toys, beds and care for dogs and cats, at honest prices.</p>
+      </div>
+      <div>
+        <h3>Shop</h3>
+        <a href="#shop" data-nav="dogs">Dogs</a><a href="#shop" data-nav="cats">Cats</a><a href="#shop" data-nav="care">Care &amp; Home</a><a href="#shop">All products</a>
+      </div>
+      <div>
+        <h3>Help</h3>
+        <a href="#visit">Delivery &amp; returns</a><a href="#visit">Opening hours</a><a href="#reviews">Reviews</a><a href="#visit">Contact us</a>
+      </div>
+      <div>
+        <h3>Contact</h3>
+        <p>214 Oak Street, Springfield<br>Phone: (555) 214-0194<br>Email: hello@pawmart.example<br>Open today until 19:00</p>
+      </div>
+    </div>
+    <div class="foot-bottom"><span>© 2026 PawMart. All rights reserved.</span><span>Prices include tax. Free delivery over $40.</span></div>
+  </div>
+</footer>
+
+<!-- CART DRAWER -->
+<div class="overlay" id="overlay"></div>
+<aside class="drawer" id="drawer" aria-label="Shopping cart">
+  <div class="drawer-head"><h3>Your cart</h3><button class="xbtn" id="closeCart" aria-label="Close cart">×</button></div>
+  <div class="drawer-items" id="drawerItems"></div>
+  <div class="drawer-foot" id="drawerFoot">
+    <div class="freebar"><div id="freeFill" style="width:0%"></div></div>
+    <div class="freenote" id="freeNote"></div>
+    <div class="trow"><span>Subtotal</span><span id="subTotal">$0.00</span></div>
+    <div class="trow"><span>Delivery</span><span id="delTotal">—</span></div>
+    <div class="trow total"><span>Total</span><span id="grandTotal">$0.00</span></div>
+    <button class="checkoutbtn" id="goCheckout" style="margin-top:12px">Checkout</button>
+  </div>
+</aside>
+
+<!-- CHECKOUT MODAL -->
+<div class="modal" id="modal" role="dialog" aria-modal="true" aria-labelledby="coTitle">
+  <div class="modal-box">
+    <button class="xbtn" id="closeModal" aria-label="Close checkout" style="position:absolute;top:14px;right:16px">×</button>
+    <div id="checkoutFormWrap">
+      <h3 id="coTitle">Checkout</h3>
+      <p class="sub">Delivery to Springfield and nearby towns. Pay cash on delivery or by card.</p>
+      <div class="sumbox" id="sumBox"></div>
+      <form id="coForm" novalidate>
+        <div class="f-field" id="f-name"><label for="inName">Full name</label><input id="inName" type="text" autocomplete="name" placeholder="e.g. Sara Ahmed"><div class="err">Please enter your name.</div></div>
+        <div class="f-field" id="f-phone"><label for="inPhone">Phone number</label><input id="inPhone" type="tel" autocomplete="tel" placeholder="e.g. 555 010 2233"><div class="err">Please enter a valid phone number.</div></div>
+        <div class="f-field" id="f-addr"><label for="inAddr">Delivery address</label><input id="inAddr" type="text" autocomplete="street-address" placeholder="House, street, town"><div class="err">Please enter your delivery address.</div></div>
+        <div class="f-field"><label>Payment</label>
+          <div class="payrow">
+            <button type="button" class="payopt sel" data-pay="Cash on delivery">Cash on delivery</button>
+            <button type="button" class="payopt" data-pay="Card">Card</button>
+          </div>
+        </div>
+        <button class="checkoutbtn" type="submit">Place order</button>
+      </form>
+    </div>
+    <div id="successWrap" class="success" style="display:none">
+      <div class="tick"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3"><path d="M4 12.5l5 5L20 6.5"/></svg></div>
+      <h3>Order placed — thank you!</h3>
+      <p>Your order number is</p>
+      <div class="ordno" id="ordNo"></div>
+      <p id="successDetail"></p>
+      <button class="btn btn-leaf" id="successClose" style="margin-top:18px">Continue shopping</button>
+    </div>
+  </div>
+</div>
+
+<div class="toast" id="toast" role="status"></div>
+
+<script>
+const FALLBACK = 'data:image/svg+xml;utf8,' + encodeURIComponent('<svg xmlns="http://www.w3.org/2000/svg" width="800" height="600"><rect width="800" height="600" fill="#F2EADA"/><g fill="#2E5339" opacity="0.55"><ellipse cx="400" cy="330" rx="90" ry="74"/><circle cx="272" cy="252" r="38"/><circle cx="352" cy="206" r="43"/><circle cx="452" cy="200" r="43"/><circle cx="534" cy="248" r="38"/></g><text x="400" y="470" font-family="Georgia,serif" font-size="30" fill="#22301F" text-anchor="middle">PawMart</text></svg>');
+function imgFallback(el){ el.onerror=null; el.src=FALLBACK; }
+
+const U = id => 'https://images.unsplash.com/' + id + '?auto=format&fit=crop&w=800&q=60';
+const PRODUCTS = [
+ {id:1, name:'Premium Chicken Kibble 5kg', cat:'dogs', catLabel:'Dogs', price:24.99, rating:4.9, reviews:212, badge:'Bestseller', img:U('photo-1589924691995-400dc9ecc119'), alt:'Dog eating from a bowl of kibble'},
+ {id:2, name:'Grain-Free Salmon Kibble 4kg', cat:'dogs', catLabel:'Dogs', price:29.50, rating:4.8, reviews:167, badge:'', img:U('photo-1548199973-03cce0bbc87b'), alt:'Two happy dogs running outside'},
+ {id:3, name:'Rope & Ball Toy Set', cat:'dogs', catLabel:'Dogs', price:9.99, rating:4.7, reviews:98, badge:'New', img:U('photo-1601758228041-f3b2795255f1'), alt:'Dog playing with its owner at home'},
+ {id:4, name:'Orthopedic Dog Bed — Large', cat:'dogs', catLabel:'Dogs', price:39.99, was:49.99, rating:4.9, reviews:301, badge:'Save 20%', sale:true, img:U('photo-1537151625747-768eb6cf92b2'), alt:'Dog resting comfortably'},
+ {id:5, name:'Natural Clumping Cat Litter 10kg', cat:'cats', catLabel:'Cats', price:16.75, rating:4.8, reviews:256, badge:'Bestseller', img:U('photo-1514888286974-6c03e2ca1dba'), alt:'Tabby cat looking at the camera'},
+ {id:6, name:'Feather Wand Toy', cat:'cats', catLabel:'Cats', price:8.50, rating:4.6, reviews:74, badge:'', img:U('photo-1592194996308-7b43878e84a6'), alt:'Kitten playing indoors'},
+ {id:7, name:'Indoor Cat Dry Food 3kg', cat:'cats', catLabel:'Cats', price:21.25, rating:4.8, reviews:189, badge:'', img:U('photo-1573865526739-10659fec78a5'), alt:'Cat sitting by a window'},
+ {id:8, name:'Window Hammock Bed', cat:'cats', catLabel:'Cats', price:27.99, rating:4.7, reviews:143, badge:'New', img:U('photo-1495360010541-f48722b34f7d'), alt:'Cat relaxing in the sun'},
+ {id:9, name:'Gentle Puppy Shampoo 500ml', cat:'care', catLabel:'Care & Home', price:11.25, rating:4.9, reviews:178, badge:'', img:U('photo-1583337130417-3346a1be7dee'), alt:'Dog being gently washed'},
+ {id:10, name:'Dental Sticks — 28 Pack', cat:'care', catLabel:'Care & Home', price:13.40, rating:4.7, reviews:264, badge:'', img:U('photo-1587300003388-59208cc962cb'), alt:'Puppy and kitten together'},
+ {id:11, name:'Pet Hair Roller Pro', cat:'care', catLabel:'Care & Home', price:12.99, rating:4.8, reviews:342, badge:'Bestseller', img:U('photo-1517849845537-4d257902454a'), alt:'Pug puppy on a sofa'},
+ {id:12, name:'Calming Drops for Anxious Pets', cat:'care', catLabel:'Care & Home', price:19.95, rating:4.6, reviews:87, badge:'', img:U('photo-1548767797-d8c844163c4c'), alt:'Calm cat resting at home'}
+];
+const FREE_OVER = 40, DELIVERY_FEE = 4.99;
+const money = n => '$' + n.toFixed(2);
+const starSVG = f => '<svg width="15" height="15" viewBox="0 0 24 24" fill="' + (f ? '#E8A33D' : '#D8CFBB') + '"><path d="M12 2.6l2.9 6 6.6.9-4.8 4.6 1.2 6.5L12 17.5l-5.9 3.1 1.2-6.5L2.5 9.5l6.6-.9z"/></svg>';
+function starsHTML(r){ let h=''; for(let i=1;i<=5;i++) h += starSVG(i <= Math.round(r)); return h; }
+document.querySelectorAll('[data-stars]').forEach(el => { el.innerHTML = starsHTML(parseFloat(el.dataset.stars)); });
+
+let filter='all', query='', sortBy='featured';
+const cart = new Map();
+const grid = document.getElementById('grid');
+
+function visibleProducts(){
+  let list = PRODUCTS.filter(p => (filter==='all' || p.cat===filter) && p.name.toLowerCase().includes(query));
+  if(sortBy==='low') list = [...list].sort((a,b)=>a.price-b.price);
+  if(sortBy==='high') list = [...list].sort((a,b)=>b.price-a.price);
+  if(sortBy==='rating') list = [...list].sort((a,b)=>b.rating-a.rating);
+  return list;
+}
+function render(){
+  const list = visibleProducts();
+  document.getElementById('resultCount').textContent = list.length + (list.length===1 ? ' product' : ' products');
+  if(!list.length){ grid.innerHTML = '<div class="noresults">No products match your search. Try a different word or category.</div>'; return; }
+  grid.innerHTML = list.map(p => `
+   <article class="pcard">
+     <div class="ph"><img src="${p.img}" alt="${p.alt}" loading="lazy" onerror="imgFallback(this)">${p.badge ? `<span class="badge${p.sale ? ' sale' : ''}">${p.badge}</span>` : ''}</div>
+     <div class="pbody">
+       <div class="pcat">${p.catLabel}</div>
+       <div class="pname">${p.name}</div>
+       <div class="stars">${starsHTML(p.rating)}<span>${p.rating} (${p.reviews})</span></div>
+       <div class="prow">
+         <div class="price">${p.was ? `<s>${money(p.was)}</s>` : ''}${money(p.price)}</div>
+         <button class="addbtn" data-add="${p.id}">Add to cart</button>
+       </div>
+     </div>
+   </article>`).join('');
+}
+grid.addEventListener('click', e => {
+  const b = e.target.closest('[data-add]'); if(!b) return;
+  addToCart(parseInt(b.dataset.add));
+  b.textContent = 'Added ✓'; b.classList.add('added');
+  setTimeout(()=>{ b.textContent='Add to cart'; b.classList.remove('added'); }, 1200);
+});
+document.querySelectorAll('[data-filter]').forEach(b => b.addEventListener('click', () => {
+  document.querySelectorAll('[data-filter]').forEach(x=>x.classList.remove('active'));
+  b.classList.add('active'); filter = b.dataset.filter; render();
+}));
+document.querySelectorAll('[data-nav]').forEach(a => a.addEventListener('click', () => {
+  const f = a.dataset.nav;
+  document.querySelectorAll('[data-filter]').forEach(x=>x.classList.toggle('active', x.dataset.filter===f));
+  filter = f; render();
+}));
+document.getElementById('search').addEventListener('input', e => { query = e.target.value.trim().toLowerCase(); render(); });
+document.getElementById('sort').addEventListener('change', e => { sortBy = e.target.value; render(); });
+
+function cartTotals(){
+  let count=0, sub=0;
+  cart.forEach((qty,id)=>{ const p=PRODUCTS.find(x=>x.id===id); count+=qty; sub+=p.price*qty; });
+  const del = count===0 ? 0 : (sub>=FREE_OVER ? 0 : DELIVERY_FEE);
+  return {count, sub, del, total: sub+del};
+}
+function addToCart(id){ cart.set(id, (cart.get(id)||0)+1); syncCart(); toast('Added to cart'); }
+function setQty(id, qty){ if(qty<=0) cart.delete(id); else cart.set(id, qty); syncCart(); }
+function syncCart(){
+  const t = cartTotals();
+  document.getElementById('cartCount').textContent = t.count;
+  const box = document.getElementById('drawerItems');
+  if(t.count===0){ box.innerHTML = '<div class="emptycart">Your cart is empty.<br>Add something your pet will love.</div>'; }
+  else{
+    box.innerHTML = [...cart.entries()].map(([id,qty])=>{ const p=PRODUCTS.find(x=>x.id===id); return `
+     <div class="citem">
+       <img src="${p.img}" alt="${p.alt}" onerror="imgFallback(this)">
+       <div>
+         <div class="nm">${p.name}</div>
+         <div class="pr">${money(p.price)}</div>
+         <div class="qty"><button data-dec="${id}" aria-label="Decrease quantity">−</button><span>${qty}</span><button data-inc="${id}" aria-label="Increase quantity">+</button></div>
+       </div>
+       <button class="rm" data-rm="${id}">Remove</button>
+     </div>`; }).join('');
+  }
+  document.getElementById('subTotal').textContent = money(t.sub);
+  document.getElementById('delTotal').textContent = t.count===0 ? '—' : (t.del===0 ? 'Free' : money(t.del));
+  document.getElementById('grandTotal').textContent = money(t.total);
+  const pct = Math.min(100, t.sub/FREE_OVER*100);
+  document.getElementById('freeFill').style.width = pct + '%';
+  document.getElementById('freeNote').textContent = t.sub>=FREE_OVER ? 'You have free delivery.' : ('Add ' + money(FREE_OVER - t.sub) + ' more for free delivery.');
+  document.getElementById('goCheckout').disabled = t.count===0;
+  document.getElementById('goCheckout').style.opacity = t.count===0 ? .5 : 1;
+}
+document.getElementById('drawerItems').addEventListener('click', e => {
+  const inc = e.target.closest('[data-inc]'), dec = e.target.closest('[data-dec]'), rm = e.target.closest('[data-rm]');
+  if(inc) setQty(parseInt(inc.dataset.inc), (cart.get(parseInt(inc.dataset.inc))||0)+1);
+  if(dec){ const id=parseInt(dec.dataset.dec); setQty(id, (cart.get(id)||0)-1); }
+  if(rm) setQty(parseInt(rm.dataset.rm), 0);
+});
+
+const drawer = document.getElementById('drawer'), overlay = document.getElementById('overlay'), modal = document.getElementById('modal');
+function openCart(){ drawer.classList.add('open'); overlay.classList.add('open'); }
+function closeCart(){ drawer.classList.remove('open'); overlay.classList.remove('open'); }
+document.getElementById('openCart').addEventListener('click', openCart);
+document.getElementById('closeCart').addEventListener('click', closeCart);
+overlay.addEventListener('click', closeCart);
+
+let payMethod = 'Cash on delivery';
+document.querySelectorAll('.payopt').forEach(b => b.addEventListener('click', () => {
+  document.querySelectorAll('.payopt').forEach(x=>x.classList.remove('sel'));
+  b.classList.add('sel'); payMethod = b.dataset.pay;
+}));
+document.getElementById('goCheckout').addEventListener('click', () => {
+  const t = cartTotals(); if(t.count===0) return;
+  closeCart();
+  document.getElementById('checkoutFormWrap').style.display='block';
+  document.getElementById('successWrap').style.display='none';
+  document.getElementById('sumBox').innerHTML = [...cart.entries()].map(([id,qty])=>{ const p=PRODUCTS.find(x=>x.id===id); return `<div class="trow"><span>${p.name} × ${qty}</span><span>${money(p.price*qty)}</span></div>`; }).join('')
+    + `<div class="trow"><span>Delivery</span><span>${t.del===0 ? 'Free' : money(t.del)}</span></div><div class="trow total"><span>Total</span><span>${money(t.total)}</span></div>`;
+  modal.classList.add('open');
+});
+document.getElementById('closeModal').addEventListener('click', () => modal.classList.remove('open'));
+modal.addEventListener('click', e => { if(e.target===modal) modal.classList.remove('open'); });
+
+function fieldOK(id, ok){ document.getElementById(id).classList.toggle('invalid', !ok); return ok; }
+document.getElementById('coForm').addEventListener('submit', e => {
+  e.preventDefault();
+  const name = document.getElementById('inName').value.trim();
+  const phone = document.getElementById('inPhone').value.replace(/[\s-]/g,'');
+  const addr = document.getElementById('inAddr').value.trim();
+  let ok = true;
+  ok = fieldOK('f-name', name.length>=3) && ok;
+  ok = fieldOK('f-phone', /^\+?\d{7,15}$/.test(phone)) && ok;
+  ok = fieldOK('f-addr', addr.length>=8) && ok;
+  if(!ok) return;
+  const t = cartTotals();
+  document.getElementById('ordNo').textContent = 'PM-2026-' + Math.floor(1000 + Math.random()*9000);
+  document.getElementById('successDetail').textContent = 'Thank you, ' + name.split(' ')[0] + '. ' + t.count + (t.count===1 ? ' item' : ' items') + ' · ' + money(t.total) + ' · ' + payMethod + '. We will call ' + document.getElementById('inPhone').value.trim() + ' to confirm delivery to ' + addr + '.';
+  document.getElementById('checkoutFormWrap').style.display='none';
+  document.getElementById('successWrap').style.display='block';
+  cart.clear(); syncCart();
+});
+document.getElementById('successClose').addEventListener('click', () => modal.classList.remove('open'));
+
+let toastTimer;
+function toast(msg){ const t=document.getElementById('toast'); t.textContent=msg; t.classList.add('show'); clearTimeout(toastTimer); toastTimer=setTimeout(()=>t.classList.remove('show'), 1800); }
+
+render(); syncCart();
+</script>
+</body>
+</html>
