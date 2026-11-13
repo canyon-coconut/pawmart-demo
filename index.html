@@ -524,7 +524,7 @@ const PRODUCTS = [
  {id:8, name:'Window Perch Bed', cat:'cats', catLabel:'Cats', price:27.99, rating:4.7, reviews:143, badge:'New', img:'images/p08.jpg', alt:'Cat resting on a window hammock perch'},
  {id:9, name:'Gentle Puppy Shampoo 500ml', cat:'care', catLabel:'Care & Home', price:11.25, rating:4.9, reviews:178, badge:'', img:'images/p09.jpg', alt:'Dog in a foamy bath being washed'},
  {id:10, name:'Dental Chew Sticks — 28 Pack', cat:'care', catLabel:'Care & Home', price:13.40, rating:4.7, reviews:264, badge:'', img:'images/p10.jpg', alt:'Puppy chewing a dental chew stick'},
- {id:11, name:'Hand-Knit Dog Sweater', cat:'dogs', catLabel:'Dogs', price:18.99, rating:4.8, reviews:342, badge:'Bestseller', img:'images/p11.jpg', alt:'Pug wearing a hand-knit sweater'},
+ {id:11, name:'Hand-Knit Dog Sweater', cat:'dogs', catLabel:'Dogs', price:18.99, rating:4.8, reviews:342, badge:'Bestseller', img:'images/p11.jpg', pos:'50% 88%', alt:'Pug wearing a hand-knit sweater'},
  {id:12, name:'Washable Calming Blanket', cat:'care', catLabel:'Care & Home', price:19.95, rating:4.6, reviews:87, badge:'', img:'images/p12.jpg', alt:'Dog sleeping peacefully on a soft blanket'}
 ];
 const FREE_OVER = 40, DELIVERY_FEE = 4.99;
@@ -550,7 +550,7 @@ function render(){
   if(!list.length){ grid.innerHTML = '<div class="noresults">No products match your search. Try a different word or category.</div>'; return; }
   grid.innerHTML = list.map(p => `
    <article class="pcard">
-     <div class="ph"><img src="${p.img}" alt="${p.alt}" onerror="imgFallback(this)">${p.badge ? `<span class="badge${p.sale ? ' sale' : ''}">${p.badge}</span>` : ''}</div>
+     <div class="ph"><img src="${p.img}" alt="${p.alt}" style="object-position:${p.pos||'50% 50%'}" onerror="imgFallback(this)">${p.badge ? `<span class="badge${p.sale ? ' sale' : ''}">${p.badge}</span>` : ''}</div>
      <div class="pbody">
        <div class="pcat">${p.catLabel}</div>
        <div class="pname">${p.name}</div>
