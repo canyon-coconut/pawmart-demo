@@ -109,6 +109,24 @@ section{padding:44px 0;scroll-margin-top:96px}
 .gword{font-weight:700;font-size:17px}
 .gword .g1{color:#4285F4}.gword .g2{color:#EA4335}.gword .g3{color:#FBBC05}.gword .g4{color:#4285F4}.gword .g5{color:#34A853}.gword .g6{color:#EA4335}
 .rev-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.story-grid{display:grid;grid-template-columns:1fr 1fr;gap:36px;align-items:center}
+.story-grid img{width:100%;height:340px;object-fit:cover;border-radius:18px}
+.story-grid p{color:var(--muted);margin-bottom:12px}
+.tips-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.tip{background:#fff;border:1px solid var(--line);border-radius:14px;overflow:hidden}
+.tip img{width:100%;height:170px;object-fit:cover}
+.tip .tb{padding:16px 18px 18px}
+.tip h3{font-size:18px;margin-bottom:6px}
+.tip p{color:var(--muted);font-size:14.5px}
+.faq details{background:#fff;border:1px solid var(--line);border-radius:12px;padding:14px 18px;margin-bottom:10px}
+.faq summary{font-weight:700;cursor:pointer;font-size:16px}
+.faq details p{color:var(--muted);margin-top:8px;font-size:15px}
+.news{background:var(--leaf);border-radius:18px;padding:34px 30px;display:flex;gap:26px;align-items:center;flex-wrap:wrap}
+.news h2{color:#fff;font-size:26px}
+.news p{color:#DCE8DC}
+.news form{display:flex;gap:10px;flex:1;min-width:260px}
+.news input{flex:1;padding:13px 15px;border-radius:10px;border:none;font:inherit;min-width:0}
+.news button{background:var(--clay);color:#fff;border:none;padding:13px 22px;border-radius:10px;font-weight:700;font:inherit;cursor:pointer;white-space:nowrap}
 .rev{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:20px}
 .rev-head{display:flex;align-items:center;gap:12px;margin-bottom:10px}
 .avatar{width:42px;height:42px;border-radius:50%;background:var(--leaf);color:#fff;font-weight:700;display:flex;align-items:center;justify-content:center;font-size:16px}
@@ -198,6 +216,9 @@ footer p{font-size:15px;color:#CFC6AE}
   .hero{padding:32px 0}
   .hero h1{font-size:34px}
   .rev-grid,.info-grid{grid-template-columns:1fr}
+  .story-grid{grid-template-columns:1fr}
+  .tips-grid{grid-template-columns:1fr}
+  .news form{flex:1 1 100%}
   .visit-in{grid-template-columns:1fr}
   .foot-grid{grid-template-columns:1fr 1fr}
 }
@@ -309,6 +330,31 @@ footer p{font-size:15px;color:#CFC6AE}
     </div>
   </section>
 
+  <!-- STORY -->
+  <section id="story" style="padding-top:6px">
+    <div class="wrap story-grid">
+      <div>
+        <h2 class="sec">Our story</h2>
+        <p>PawMart began in 2016 as one shelf of pet food in the Okafor family's corner shop. Word travelled the way it does in Springfield — neighbour to neighbour — and the shelf became an aisle, then the whole shop.</p>
+        <p>Everything on our shelves is food, toys and care we have used with our own two dogs and a very particular cat. If it does not pass them, it does not get stocked. That is the whole secret, and it has worked for ten years.</p>
+        <p>Today we deliver across the Springfield area, but the rule has not changed: honest products, fair prices, and advice that costs nothing.</p>
+      </div>
+      <img src="images/story.jpg" alt="Washing a dog with care at bath time" onerror="imgFallback(this)">
+    </div>
+  </section>
+
+  <!-- TIPS -->
+  <section id="tips" style="padding-top:6px">
+    <div class="wrap">
+      <div class="sec-head"><h2 class="sec">Pet care tips from the counter</h2></div>
+      <div class="tips-grid">
+        <div class="tip"><img src="images/p01.jpg" alt="Bowl of kibble" onerror="imgFallback(this)"><div class="tb"><h3>Feeding: little and often</h3><p>Two smaller meals beat one big one for most dogs, and fresh water should always be down. Changing food? Mix the new in over a week so tummies keep up.</p></div></div>
+        <div class="tip"><img src="images/p06.jpg" alt="Cat playing with a feather wand toy" onerror="imgFallback(this)"><div class="tb"><h3>Play: ten minutes, twice a day</h3><p>Short play sessions burn energy better than one long one — and a wand toy before bed settles most cats for the night. Let them "catch" it at the end.</p></div></div>
+        <div class="tip"><img src="images/p09.jpg" alt="Dog in a foamy bath being washed" onerror="imgFallback(this)"><div class="tb"><h3>Bath time: warm, gentle, quick</h3><p>Lukewarm water, a gentle pet shampoo, and ten minutes is plenty. Human shampoo is too strong for pet skin — it is the one swap we always talk people out of.</p></div></div>
+      </div>
+    </div>
+  </section>
+
   <!-- REVIEWS -->
   <section id="reviews">
     <div class="wrap">
@@ -343,6 +389,18 @@ footer p{font-size:15px;color:#CFC6AE}
     </div>
   </section>
 
+  <!-- FAQ -->
+  <section id="faq" class="faq" style="padding-top:6px">
+    <div class="wrap" style="max-width:820px">
+      <div class="sec-head"><h2 class="sec">Questions we hear a lot</h2></div>
+      <details><summary>How fast is delivery?</summary><p>Order before 4pm and it leaves the shop the same day, anywhere in the Springfield area. Most orders arrive the same evening or the next morning. Delivery is a flat $4.99, and free on orders over $40.</p></details>
+      <details><summary>What if my pet will not eat the food?</summary><p>Bring it back within 30 days — opened or not — for a full refund or a swap. Fussy eaters are a fact of life; you should not be the one paying for them.</p></details>
+      <details><summary>How do I pay?</summary><p>Cash on delivery, or card at checkout. Whichever suits you — there is no extra charge for either.</p></details>
+      <details><summary>Can I collect from the shop instead?</summary><p>Of course. Order as usual, choose to collect, and we will have it bagged at the counter at 214 Oak Street. We are open until 7pm on weekdays.</p></details>
+      <details><summary>Do you stock prescription or specialist food?</summary><p>We keep the common specialist lines in store. If your vet has named a specific one, call us on (555) 214-0194 and we will order it in — usually within two days.</p></details>
+    </div>
+  </section>
+
   <!-- VISIT -->
   <section id="visit" class="visit" style="padding-top:4px">
     <div class="wrap visit-in">
@@ -361,6 +419,20 @@ footer p{font-size:15px;color:#CFC6AE}
       </div>
     </div>
   </section>
+  <!-- NEWSLETTER -->
+  <div class="wrap" style="padding-bottom:44px">
+    <div class="news">
+      <div style="flex:1;min-width:240px">
+        <h2 class="sec" style="margin-bottom:6px">Pet tips &amp; offers, monthly</h2>
+        <p>One short email a month — seasonal care tips, new arrivals and offers for regulars. No spam, ever.</p>
+      </div>
+      <form id="newsForm" onsubmit="return newsSubmit(event)">
+        <input type="email" id="newsEmail" placeholder="Your email address" aria-label="Email address for newsletter">
+        <button type="submit">Sign me up</button>
+      </form>
+      <p id="newsMsg" style="flex:1 1 100%;color:#fff;font-weight:600;display:none;margin:0"></p>
+    </div>
+  </div>
 </main>
 
 <footer id="contact">
@@ -443,17 +515,17 @@ function imgFallback(el){ el.onerror=null; el.src=FALLBACK; }
 const U = id => 'https://images.unsplash.com/' + id + '?auto=format&fit=crop&w=800&q=60';
 const PRODUCTS = [
  {id:1, name:'Premium Chicken Kibble 5kg', cat:'dogs', catLabel:'Dogs', price:24.99, rating:4.9, reviews:212, badge:'Bestseller', img:'images/p01.jpg', alt:'Dog eating from a bowl of kibble'},
- {id:2, name:'Grain-Free Salmon Kibble 4kg', cat:'dogs', catLabel:'Dogs', price:29.50, rating:4.8, reviews:167, badge:'', img:'images/p02.jpg', alt:'Dog eating from a steel bowl on grass'},
+ {id:2, name:'Grain-Free Salmon Kibble 4kg', cat:'dogs', catLabel:'Dogs', price:29.50, rating:4.8, reviews:167, badge:'', img:'images/p02.jpg', alt:'Close-up of dry kibble pieces'},
  {id:3, name:'Braided Rope Tug Toy', cat:'dogs', catLabel:'Dogs', price:9.99, rating:4.7, reviews:98, badge:'New', img:'images/p03.jpg', alt:'Dog playing tug with a braided rope toy'},
  {id:4, name:'Orthopedic Dog Bed — Large', cat:'dogs', catLabel:'Dogs', price:39.99, was:49.99, rating:4.9, reviews:301, badge:'Save 20%', sale:true, img:'images/p04.jpg', alt:'Dog sleeping on a cushioned dog bed'},
  {id:5, name:'Self-Cleaning Litter Box', cat:'cats', catLabel:'Cats', price:89.99, rating:4.8, reviews:256, badge:'Bestseller', img:'images/p05.jpg', alt:'Bengal cat inside a self-cleaning litter box'},
  {id:6, name:'Feather Wand Toy', cat:'cats', catLabel:'Cats', price:8.50, rating:4.6, reviews:74, badge:'', img:'images/p06.jpg', alt:'Cat playing with a feather wand toy'},
  {id:7, name:'Indoor Cat Dry Food 3kg', cat:'cats', catLabel:'Cats', price:21.25, rating:4.8, reviews:189, badge:'', img:'images/p07.jpg', alt:'Ginger cat eating dry food from a bowl'},
- {id:8, name:'Window Perch Bed', cat:'cats', catLabel:'Cats', price:27.99, rating:4.7, reviews:143, badge:'New', img:'images/p08.jpg', alt:'Cat lounging in a sunny window opening'},
- {id:9, name:'Gentle Puppy Shampoo 500ml', cat:'care', catLabel:'Care & Home', price:11.25, rating:4.9, reviews:178, badge:'', img:'images/p09.jpg', alt:'Wet dog being washed with soap suds'},
+ {id:8, name:'Window Perch Bed', cat:'cats', catLabel:'Cats', price:27.99, rating:4.7, reviews:143, badge:'New', img:'images/p08.jpg', alt:'Cat resting on a window hammock perch'},
+ {id:9, name:'Gentle Puppy Shampoo 500ml', cat:'care', catLabel:'Care & Home', price:11.25, rating:4.9, reviews:178, badge:'', img:'images/p09.jpg', alt:'Dog in a foamy bath being washed'},
  {id:10, name:'Dental Chew Sticks — 28 Pack', cat:'care', catLabel:'Care & Home', price:13.40, rating:4.7, reviews:264, badge:'', img:'images/p10.jpg', alt:'Puppy chewing a dental chew stick'},
  {id:11, name:'Hand-Knit Dog Sweater', cat:'dogs', catLabel:'Dogs', price:18.99, rating:4.8, reviews:342, badge:'Bestseller', img:'images/p11.jpg', alt:'Pug wearing a hand-knit sweater'},
- {id:12, name:'Calming Drops for Anxious Pets', cat:'care', catLabel:'Care & Home', price:19.95, rating:4.6, reviews:87, badge:'', img:'images/p12.jpg', alt:'Golden retriever sleeping peacefully on a sofa'}
+ {id:12, name:'Washable Calming Blanket', cat:'care', catLabel:'Care & Home', price:19.95, rating:4.6, reviews:87, badge:'', img:'images/p12.jpg', alt:'Dog sleeping peacefully on a soft blanket'}
 ];
 const FREE_OVER = 40, DELIVERY_FEE = 4.99;
 const money = n => '$' + n.toFixed(2);
@@ -594,6 +666,15 @@ document.getElementById('coForm').addEventListener('submit', e => {
 document.getElementById('successClose').addEventListener('click', () => modal.classList.remove('open'));
 
 let toastTimer;
+function newsSubmit(e){
+  e.preventDefault();
+  var em=document.getElementById('newsEmail').value.trim();
+  var msg=document.getElementById('newsMsg');
+  if(!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(em)){ msg.style.display='block'; msg.textContent='Please enter a valid email address.'; return false; }
+  document.getElementById('newsForm').style.display='none';
+  msg.style.display='block'; msg.textContent='Thank you — you are on the list. First tips email arrives at the start of next month.';
+  return false;
+}
 function toast(msg){ const t=document.getElementById('toast'); t.textContent=msg; t.classList.add('show'); clearTimeout(toastTimer); toastTimer=setTimeout(()=>t.classList.remove('show'), 1800); }
 
 render(); syncCart();
