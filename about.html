@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<meta name="description" content="PawMart is Springfield's family-run pet supplies shop. Dog and cat food, toys, beds and care — free delivery on orders over $40, same-day dispatch.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@600;700&family=Archivo:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<title>About — PawMart | Our Story, FAQ &amp; Opening Hours</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="topbar">Free delivery on orders over $40 &nbsp;·&nbsp; Same-day dispatch on orders before 4pm &nbsp;·&nbsp; Call us: <a href="tel:+15552140194" style="color:#fff;font-weight:700">(555) 214-0194</a></div>
+
+<header>
+  <div class="wrap head-in">
+    <a class="logo" href="index.html" aria-label="PawMart home">
+      <span class="logo-badge" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" fill="#FAF6EF"><ellipse cx="12" cy="15.5" rx="4.4" ry="3.6"/><circle cx="5.6" cy="10.5" r="1.9"/><circle cx="9.2" cy="7.6" r="2.1"/><circle cx="13.6" cy="7.2" r="2.1"/><circle cx="17.6" cy="10.2" r="1.9"/></svg></span>
+      <span class="logo-name">Paw<span>Mart</span></span>
+    </a>
+    <nav class="main" aria-label="Main">
+      <a href="index.html">Home</a><a href="shop.html">Shop</a><a href="shop.html?cat=dogs">Dogs</a><a href="shop.html?cat=cats">Cats</a><a href="shop.html?cat=care">Care &amp; Home</a><a href="about.html">About</a>
+    </nav>
+    <div class="head-tools">
+      <form class="searchbox" action="shop.html" method="get" role="search">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#4A5546" stroke-width="2.4"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.8-3.8"/></svg>
+        <input name="q" type="search" placeholder="Search…" aria-label="Search products">
+      </form>
+      <button class="cartbtn" id="openCart" aria-label="Open cart">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2"><circle cx="9" cy="20" r="1.6"/><circle cx="17" cy="20" r="1.6"/><path d="M2 3h3l2.6 12.4a1.5 1.5 0 0 0 1.5 1.1h7.9a1.5 1.5 0 0 0 1.5-1.2L20.5 7H6"/></svg>
+        Cart <span class="cartcount" id="cartCount">0</span>
+      </button>
+    </div>
+  </div>
+</header>
+<main>
+  <!-- STORY -->
+  <section id="story" style="padding-top:6px">
+    <div class="wrap story-grid">
+      <div>
+        <h2 class="sec">Our story</h2>
+        <p>PawMart began in 2016 as one shelf of pet food in the Okafor family's corner shop. Word travelled the way it does in Springfield — neighbour to neighbour — and the shelf became an aisle, then the whole shop.</p>
+        <p>Everything on our shelves is food, toys and care we have used with our own two dogs and a very particular cat. If it does not pass them, it does not get stocked. That is the whole secret, and it has worked for ten years.</p>
+        <p>Today we deliver across the Springfield area, but the rule has not changed: honest products, fair prices, and advice that costs nothing.</p>
+      </div>
+      <img src="images/story.jpg" alt="Inside the PawMart shop — shelves of pet food, our dog by the counter and the shop cat asleep on it" onerror="imgFallback(this)">
+    </div>
+  </section>
+
+
+  <!-- FAQ -->
+  <section id="faq" class="faq" style="padding-top:6px">
+    <div class="wrap" style="max-width:820px">
+      <div class="sec-head"><h2 class="sec">Questions we hear a lot</h2></div>
+      <details><summary>How fast is delivery?</summary><p>Order before 4pm and it leaves the shop the same day, anywhere in the Springfield area. Most orders arrive the same evening or the next morning. Delivery is a flat $4.99, and free on orders over $40.</p></details>
+      <details><summary>What if my pet will not eat the food?</summary><p>Bring it back within 30 days — opened or not — for a full refund or a swap. Fussy eaters are a fact of life; you should not be the one paying for them.</p></details>
+      <details><summary>How do I pay?</summary><p>Cash on delivery, or card at checkout. Whichever suits you — there is no extra charge for either.</p></details>
+      <details><summary>Can I collect from the shop instead?</summary><p>Of course. Order as usual, choose to collect, and we will have it bagged at the counter at 214 Oak Street. We are open until 7pm on weekdays.</p></details>
+      <details><summary>Do you stock prescription or specialist food?</summary><p>We keep the common specialist lines in store. If your vet has named a specific one, call us on (555) 214-0194 and we will order it in — usually within two days.</p></details>
+    </div>
+  </section>
+
+  <!-- VISIT -->
+  <section id="visit" class="visit" style="padding-top:4px">
+    <div class="wrap visit-in">
+      <div>
+        <h2>Visit the shop</h2>
+        <p>PawMart is a family shop, run by the Okafor family since 2016. Come in for free advice on food and care — bring your pet, they're welcome in store. Find us at <strong>214 Oak Street, Springfield</strong>, next to the post office.</p>
+        <p style="margin-top:12px">Call us: <a href="tel:+15552140194" style="font-weight:700;color:var(--leaf)">(555) 214-0194</a> &nbsp;·&nbsp; Email: <a href="mailto:hello@pawmart.example" style="font-weight:700;color:var(--leaf)">hello@pawmart.example</a></p>
+      </div>
+      <div class="hours">
+        <h3>Opening hours</h3>
+        <table>
+          <tr><td>Monday – Friday</td><td>9:00 – 19:00</td></tr>
+          <tr><td>Saturday</td><td>9:00 – 17:00</td></tr>
+          <tr><td>Sunday</td><td>10:00 – 14:00</td></tr>
+        </table>
+      </div>
+    </div>
+  </section>
+  <!-- NEWSLETTER -->
+  <div class="wrap" style="padding-bottom:44px">
+    <div class="news">
+      <div style="flex:1;min-width:240px">
+        <h2 class="sec" style="margin-bottom:6px">Pet tips &amp; offers, monthly</h2>
+        <p>One short email a month — seasonal care tips, new arrivals and offers for regulars. No spam, ever.</p>
+      </div>
+      <form id="newsForm" onsubmit="return newsSubmit(event)">
+        <input type="email" id="newsEmail" placeholder="Your email address" aria-label="Email address for newsletter">
+        <button type="submit">Sign me up</button>
+      </form>
+      <p id="newsMsg" style="flex:1 1 100%;color:#fff;font-weight:600;display:none;margin:0"></p>
+    </div>
+  </div>
+</main>
+<footer id="contact">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <div class="foot-logo">Paw<span>Mart</span></div>
+        <p>Family-run pet supplies in Springfield since 2016. Food, toys, beds and care for dogs and cats, at honest prices.</p>
+      </div>
+      <div>
+        <h3>Shop</h3>
+        <a href="shop.html?cat=dogs">Dogs</a><a href="shop.html?cat=cats">Cats</a><a href="shop.html?cat=care">Care &amp; Home</a><a href="shop.html">All products</a>
+      </div>
+      <div>
+        <h3>Help</h3>
+        <a href="about.html#visit">Delivery &amp; returns</a><a href="about.html#visit">Opening hours</a><a href="index.html#reviews">Reviews</a><a href="about.html#visit">Contact us</a>
+      </div>
+      <div>
+        <h3>Contact</h3>
+        <p>214 Oak Street, Springfield<br>Phone: (555) 214-0194<br>Email: hello@pawmart.example<br>Open today until 19:00</p>
+      </div>
+    </div>
+    <div class="foot-bottom"><span>© 2026 PawMart. All rights reserved.</span><span>Prices include tax. Free delivery over $40.</span></div>
+  </div>
+</footer>
+<!-- CART DRAWER -->
+<div class="overlay" id="overlay"></div>
+<aside class="drawer" id="drawer" aria-label="Shopping cart">
+  <div class="drawer-head"><h3>Your cart</h3><button class="xbtn" id="closeCart" aria-label="Close cart">×</button></div>
+  <div class="drawer-items" id="drawerItems"></div>
+  <div class="drawer-foot" id="drawerFoot">
+    <div class="freebar"><div id="freeFill" style="width:0%"></div></div>
+    <div class="freenote" id="freeNote"></div>
+    <div class="trow"><span>Subtotal</span><span id="subTotal">$0.00</span></div>
+    <div class="trow"><span>Delivery</span><span id="delTotal">—</span></div>
+    <div class="trow total"><span>Total</span><span id="grandTotal">$0.00</span></div>
+    <button class="checkoutbtn" id="goCheckout" style="margin-top:12px">Checkout</button>
+  </div>
+</aside>
+
+<!-- CHECKOUT MODAL -->
+<div class="modal" id="modal" role="dialog" aria-modal="true" aria-labelledby="coTitle">
+  <div class="modal-box">
+    <button class="xbtn" id="closeModal" aria-label="Close checkout" style="position:absolute;top:14px;right:16px">×</button>
+    <div id="checkoutFormWrap">
+      <h3 id="coTitle">Checkout</h3>
+      <p class="sub">Delivery to Springfield and nearby towns. Pay cash on delivery or by card.</p>
+      <div class="sumbox" id="sumBox"></div>
+      <form id="coForm" novalidate>
+        <div class="f-field" id="f-name"><label for="inName">Full name</label><input id="inName" type="text" autocomplete="name" placeholder="e.g. Sara Ahmed"><div class="err">Please enter your name.</div></div>
+        <div class="f-field" id="f-phone"><label for="inPhone">Phone number</label><input id="inPhone" type="tel" autocomplete="tel" placeholder="e.g. 555 010 2233"><div class="err">Please enter a valid phone number.</div></div>
+        <div class="f-field" id="f-addr"><label for="inAddr">Delivery address</label><input id="inAddr" type="text" autocomplete="street-address" placeholder="House, street, town"><div class="err">Please enter your delivery address.</div></div>
+        <div class="f-field"><label>Payment</label>
+          <div class="payrow">
+            <button type="button" class="payopt sel" data-pay="Cash on delivery">Cash on delivery</button>
+            <button type="button" class="payopt" data-pay="Card">Card</button>
+          </div>
+        </div>
+        <button class="checkoutbtn" type="submit">Place order</button>
+      </form>
+    </div>
+    <div id="successWrap" class="success" style="display:none">
+      <div class="tick"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3"><path d="M4 12.5l5 5L20 6.5"/></svg></div>
+      <h3>Order placed — thank you!</h3>
+      <p>Your order number is</p>
+      <div class="ordno" id="ordNo"></div>
+      <p id="successDetail"></p>
+      <button class="btn btn-leaf" id="successClose" style="margin-top:18px">Continue shopping</button>
+    </div>
+  </div>
+</div>
+
+<div class="toast" id="toast" role="status"></div>
+<script src="shop.js"></script>
+</body>
+</html>
